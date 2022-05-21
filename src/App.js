@@ -3,28 +3,24 @@ import './App.css';
 import axios from 'axios';
 
 function App() {
-  const client_id = '638824d8d1cf48bca579d7fa24c5ac40';
-  const client_secret = 'cb118a82d49d4d51b6f2e5ecefed9085';
-  let access_token;
-
-  const [artists, setArtists] = useState([])
-
   
-  const spotifyAuth = async() => {
-      const params = new URLSearchParams();
-      params.append('grant_type', 'client_credentials');
-      const res = await axios.post('https://accounts.spotify.com/api/token', params, {
-          headers: {
-              'Authorization': 'Basic ' + (new Buffer.from(client_id + ':' + client_secret).toString('base64')),
-              'Content-Type': "application/x-www-form-urlencoded"
-            },
-      })
-    access_token = res.data.access_token
-  }
 
-  useEffect(() => {
 
-    const hash = window.location.hash
+    const CLIENT_ID = 'e453b26fcf06407d9e3640b7ad74cd48';
+    // const clientSecret = '2d01679727954cbbbf682a070d7c9949';
+    const REDIRECT_URI = 'http://localhost:3000';
+    const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize'
+    const RESPONSE_TYPE = 'token'
+
+
+    const [token, setToken] = useState("")
+    const [searchKey, setSearchKey] = useState('')
+    const [artists, setArtists] = useState([])
+    const [albums, setAlbums] = useState([])
+
+
+    useEffect(() => {
+        const hash = window.location.hash
         let token = window.localStorage.getItem('token')
 
         if(!token && hash) {
@@ -35,30 +31,110 @@ function App() {
             window.localStorage.setItem('token', token)
             
         }
-        access_token = token
-        // setToken(token)
-    // spotifyAuth();
+        setToken(token)
 
-    const searchSpotify = async() => {
-        const res = await axios.get('https://api.spotify.com/v1/search?q=drake&type=artist&limit=50', {
-            headers: {
-                'Authorization': 'Bearer ' + access_token
-              }
-        })
-        console.log(res)
-        await setArtists(res.data)
-        console.log(artists)
+    }, [])
+
+
+    const logout = () => {
+        setToken('')
+        window.localStorage.removeItem('token')
     }
-    searchSpotify()
+
+    
+    const searchArtists = async (e) => {
+        e.preventDefault()
+        const {data} = await axios.get("https://api.spotify.com/v1/search", { 
+            headers: { 
+                Authorization: `Bearer ${token}`
+            },
+            params: {
+                q: searchKey,
+                type: "artist"
+            }
+        })
+        console.log(data)
+        setArtists(data.artists.items)
+        
+        const searchAlbums = async () => {
+            e.preventDefault()
+            
+            const {data} = await axios.get("https://api.spotify.com/v1/search", { 
+                headers: { 
+                    Authorization: `Bearer ${token}`
+                },
+                params: {
+                    q: searchKey,
+                    type: "album"
+                }
+            })
+            console.log(data)
+            setAlbums(data.albums.items)
+        }
+        searchAlbums()
+    }
+    
 
 
-  }, [])
+
   
   
   
 
   return (
     <div className="App">
+        <h1>SPOTIFYYY!!!!</h1>
+
+        {!token ?
+        <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>
+            Login to Spotify</a>
+        : <button onClick={logout}>Logout</button>}
+
+
+        {token ?
+            <form onSubmit={searchArtists}>
+                <input type="text" placeholder="Search for artist" onChange={e => setSearchKey(e.target.value)} />
+                <button type={"submit"} >Search</button>
+            </form>
+            : <h2>Please Login</h2>
+        }
+
+        {artists ? artists.slice(0, 3).map(artist => {
+                return (
+                    <div>
+                        <h1>{artist.name}</h1>
+                        <h3>{artist.followers.total}</h3>
+                        <a href={artist.external_urls.spotify} >Link to page</a>
+                        <br></br>
+                    {
+                        artist.images.length ? <img width={"300px"} src={artist.images[0].url} alt='' /> 
+                        : <div>No Images</div>
+                    } 
+                    {/* {console.log(artist)} */}
+                    </div>
+                    
+                    )
+                })
+                : <h2>Search for artist</h2>
+                }
+        {albums ? albums.slice(0, 3).map(album => {
+                return (
+                    <div>
+                        <h1>{album.name}</h1>
+                        {/* <h3>{album.followers.total}</h3>
+                        <a href={album.external_urls.spotify} >Link to page</a>
+                        <br></br>
+                    {
+                        album.images.length ? <img width={"300px"} src={album.images[0].url} alt='' /> 
+                        : <div>No Images</div>
+                    }  */}
+                    {console.log(album)}
+                    </div>
+                    
+                    )
+                })
+                : <h2>Search for artist</h2>
+                }
 
     </div>
   );
