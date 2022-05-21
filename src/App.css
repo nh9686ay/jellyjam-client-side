@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
+
+
+
+
+
+/* BENS CSS FOR SIDE-NAV */
+.side-nav {
+    background: rgb(23, 40, 145);
+    width: 20em;
+    height: 25em;
+    padding: 0.5rem;
+    border-bottom: black solid 7px;
+    border-radius: 15px;
+}
+.side-nav h1 {
+    color: white;
+}
+.link {
+    text-decoration: none;
+}
