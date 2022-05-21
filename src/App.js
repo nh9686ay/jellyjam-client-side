@@ -17,8 +17,8 @@ function App() {
             <Route path="/search" element={<SearchPage />}></Route>
             
         </Routes>
-    </div>
-  );
+ </div>
+  )
 }
 
 export default App;
