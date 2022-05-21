@@ -1,0 +1,28 @@
+body {
+    /* background-color: #021f59; */
+    background-image: url('../public/jellygif.gif');
+    display: block;
+    background-size: cover;
+}
+.searchContainer {
+
+
+    border-radius: 100%;
+}
+.searchBar {
+    width: 90%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 10px 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.searchButton {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    
+}
