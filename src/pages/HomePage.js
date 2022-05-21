@@ -1,8 +1,21 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import SideNav from '../components/SideNav';
 
 function HomePage() {
   return (
-    <div>HomePage</div>
+    <div>
+
+        <h1>JellyJam</h1>
+        <div className="search-container">
+            <Link to="/search">
+            <button>Search</button>
+            </Link>
+        </div>
+
+        <SideNav />
+        
+    </div>
   )
 }
 
