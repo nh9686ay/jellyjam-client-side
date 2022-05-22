@@ -1,0 +1,10 @@
+
+
+.new-albums {
+    display: flex;
+    margin: 5rem;
+    justify-content: center;
+}
+.album {
+    padding: 1rem;
+}

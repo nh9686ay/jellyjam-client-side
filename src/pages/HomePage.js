@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SideNav from '../components/SideNav';
+import NewAlbums from '../components/new-albums/NewAlbums';
 
 function HomePage() {
   return (
@@ -14,6 +15,9 @@ function HomePage() {
         </div>
 
         <SideNav />
+        <div>
+            <NewAlbums />
+        </div>
         
     </div>
   )
