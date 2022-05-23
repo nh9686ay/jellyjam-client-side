@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Buffer } from 'buffer';
-import '../searchpage.css'
+import '../assets/css/searchpage.css'
 
 function SearchPage() {
   const client_id = '638824d8d1cf48bca579d7fa24c5ac40';
