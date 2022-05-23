@@ -33,7 +33,9 @@ function Album({ albums }) {
                         return (
                             //link to album page by id
                             <Link to={'/#'} key={i} className="link">
-                                <h2>{album.name}</h2>
+                                <div>
+                                    <h2>{album.name}</h2>
+                                </div>
                                 <div key={i} className="album" >
                                     {album.images.length && <img className="album-img" src={album.images[1].url} />}
                                 </div>
