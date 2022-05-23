@@ -1,6 +1,6 @@
 body {
-    /* background-color: #021f59; */
-    background-image: url('../public/jellygif.gif');
+    background-color: #021f59;
+    /* background-image: url('../public/jellygif.gif'); */
     display: block;
     background-size: cover;
 }
