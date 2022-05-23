@@ -3,8 +3,44 @@
 .new-albums {
     display: flex;
     margin: 5rem;
-    justify-content: center;
+    justify-content: center; 
+    text-align: center;
 }
 .album {
-    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    /* padding: 5rem; */
+}
+.album-img {
+    width: 12em;
+}
+
+.slides {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    justify-items: center;
+    padding: 50px;
+    width: 70em;
+}
+
+
+
+.slides {
+  position: relative;
+}
+
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index:1;
+}
+
+.slides .slick-prev {
+  left: 0%;
+}
+
+.slides .slick-next {
+    right: 0%;
 }
