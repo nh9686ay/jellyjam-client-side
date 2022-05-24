@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SideNav from '../components/SideNav';
-import NewAlbums from '../components/new-albums/NewAlbums';
+import NewAlbums from '../components/carousels/new-albums/NewAlbums';
+import FeaturedPlaylists from '../components/carousels/featured-playlists/FeaturedPlaylists';
 
 function HomePage() {
   return (
@@ -17,6 +18,9 @@ function HomePage() {
         <SideNav />
         <div>
             <NewAlbums />
+        </div>
+        <div>
+            <FeaturedPlaylists />
         </div>
         
     </div>
