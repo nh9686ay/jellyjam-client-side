@@ -1,17 +1,17 @@
 
 
-.new-albums {
+.new-albums, .featured-playlists {
     display: flex;
     margin: 5rem;
     justify-content: center; 
     text-align: center;
 }
-.album {
+.album, .playlist {
     display: flex;
     justify-content: center;
     /* padding: 5rem; */
 }
-.album-img {
+.album-img, .playlist-img {
     width: 12em;
 }
 
@@ -20,7 +20,8 @@
     justify-content: center;
     text-align: center;
     justify-items: center;
-    padding: 50px;
+    padding: 15px;
+    /* padding-bottom: 0px; */
     width: 70em;
 }
 
