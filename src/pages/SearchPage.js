@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Buffer } from 'buffer';
 import '../searchpage.css'
+import ArtistCard from '../components/ArtistCard';
+import SongCard from '../components/SongCard';
+import AlbumCard from '../components/AlbumCard';
+// import Layout from '../components/layout/Layout';
+import SideNav from '../components/SideNav';
 
 function SearchPage() {
   const client_id = '638824d8d1cf48bca579d7fa24c5ac40';
@@ -10,8 +15,9 @@ function SearchPage() {
   const [token, setToken] = useState("")
   const [searchKey, setSearchKey] = useState('')
   const [artists, setArtists] = useState([])
-  // const [albums, setAlbums] = useState([])
-  // const [songs, setSongs] = useState([])
+  const [albums, setAlbums] = useState([])
+  const [songs, setSongs] = useState([])
+  const [searched, setSearched] = useState(false)
 
   useEffect(() => {
     async function fetchData() {
@@ -28,63 +34,74 @@ function SearchPage() {
     fetchData();
   }, [])
 
-  const searchArtist = async (e) => {
+  const searchSpotify = async (e) => {
     e.preventDefault()
-    const { data } = await axios.get('https://api.spotify.com/v1/search', {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      },
-      params: {
-        q: searchKey,
-        type: 'artist'
-      }
-    })
-    console.log(data)
-    setArtists(data.artists.items)
+    const searchArtists = async () => {
+      const { data } = await axios.get('https://api.spotify.com/v1/search', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        params: {
+          q: searchKey,
+          type: "artist"
+        }
+      })
+      setArtists(data.artists.items)
+    }
+    const searchAlbums = async () => {
+      const { data } = await axios.get("https://api.spotify.com/v1/search", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        params: {
+          q: searchKey,
+          type: "album"
+        }
+      })
+      setAlbums(data.albums.items)
+    }
+    const searchSongs = async () => {
+      const { data } = await axios.get("https://api.spotify.com/v1/search", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        params: {
+          q: searchKey,
+          type: "track"
+        }
+      })
+      setSongs(data.tracks.items)
+    }
+    setSearched(true)
+    searchArtists()
+    searchAlbums()
+    searchSongs()
   }
 
-      // const searchAlbums = async (e) => {
-      //     e.preventDefault()
-      //     const {data} = await axios.get("https://api.spotify.com/v1/search", { 
-      //         headers: { 
-      //             Authorization: `Bearer ${token}`
-      //         },
-      //         params: {
-      //             q: searchKey,
-      //             type: "album"
-      //         }
-      //     })
-      //     console.log(data)
-      //     setAlbums(data.albums.items)
-      // }
-
-  
 
   return (
-    <div>
-      <div className="searchContainer">
-      <form  onSubmit={searchArtist}>
-        <input className='searchBar' type="text" placeholder="Search for artist" onChange={e => setSearchKey(e.target.value)} />
-        <button className="searchButton" type={"submit"} >Search</button>
-      </form>
+    <div className='pageContainer'>
+      <div className='sideNav'>
+        <SideNav />
+        <SideNav />
       </div>
-      {artists ? artists.slice(0, 3).map(artist => {
-        return (
-          <div>
-            <h1>{artist.name}</h1>
-            <h3>{artist.followers.total}</h3>
-            <a href={artist.external_urls.spotify} >Link to page</a>
-            <br></br>
-            {
-              artist.images.length ? <img width={"300px"} src={artist.images[0].url} alt='' />
-                : <div>No Images</div>
-            }
-
-          </div>
-        )
-      })
-        : <h2>Search for artist</h2>
-      }
+      <main className='main'>
+        <form className='wtf' onSubmit={searchSpotify}>
+          <input className="searchBar" type="text" placeholder="Search for artist" onChange={e => setSearchKey(e.target.value)} />
+          <button className="searchButton" type={"submit"}>Search</button>
+        </form>
+      <div className='entirePage'>
+        <div className='searchResults'>
+          {
+            searched ? <ArtistCard artists={artists} />
+            : null
+          }
+          {/* <Layout /> */}
+          {/* <SongCard songs={songs} /> */}
+          {/* <AlbumCard albums={albums} /> */}
+        </div>
+      </div>
+          </main>
     </div>
   )
 }
