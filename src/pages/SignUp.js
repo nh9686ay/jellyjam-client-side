@@ -1,4 +1,6 @@
 import React, { useState }from 'react'
+import axios from 'axios';
+
 
 function SignUp() {
 
@@ -24,8 +26,16 @@ function SignUp() {
     }
 
     if(signUpData.length) {
-        console.log(signUpData)
-        //axios post here to server
+        
+            console.log(signUpData)
+            axios.post('/user/signup', { 
+                email: signUpData[0].email,
+                userName: signUpData[0].userName,
+                password: signUpData[0].password
+            })
+            .then(res => console.log(res))
+            .then(data => console.log(data))
+            .catch(console.error)
     }
 
     return (
