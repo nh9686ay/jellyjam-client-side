@@ -95,7 +95,8 @@ function SearchPage() {
           <div className='searchResults'>
             {
               searched ? <ArtistCard artists={artists} />
-                : null
+              : null
+                // : <GenreCards />
             }
             {
               searched ? <SongCard songs={songs} />
@@ -112,4 +113,4 @@ function SearchPage() {
   )
 }
 
-export default SearchPage
+export default SearchPage;
