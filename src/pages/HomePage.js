@@ -25,12 +25,10 @@ function HomePage() {
   return (
     <div>
 
-        <div><Header /></div>
-        <div className="search-container">
-            <Link to="/search">
-            <button>Search</button>
-            </Link>
-        </div>
+        <header id = "homePageHeaderContainer"><Header />
+  
+        </header>
+
 
         <SideNav />
         <div>
