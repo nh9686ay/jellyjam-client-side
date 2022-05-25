@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Buffer } from 'buffer';
+<<<<<<< HEAD
 import '../assets/css/searchpage.css'
+=======
+import ArtistCard from '../components/ArtistCard';
+import SongCard from '../components/SongCard';
+import AlbumCard from '../components/AlbumCard';
+// import Layout from '../components/layout/Layout';
+import SideNav from '../components/SideNav';
+import '../assets/css/searchpage.css';
+>>>>>>> 75cce32056d045655275d3d4fbfc7985fd11dc24
 
 function SearchPage() {
   const client_id = '638824d8d1cf48bca579d7fa24c5ac40';
@@ -10,8 +19,14 @@ function SearchPage() {
   const [token, setToken] = useState("")
   const [searchKey, setSearchKey] = useState('')
   const [artists, setArtists] = useState([])
+<<<<<<< HEAD
   // const [albums, setAlbums] = useState([])
   // const [songs, setSongs] = useState([])
+=======
+  const [albums, setAlbums] = useState([])
+  const [songs, setSongs] = useState([])
+  const [searched, setSearched] = useState(false)
+>>>>>>> 75cce32056d045655275d3d4fbfc7985fd11dc24
 
   useEffect(() => {
     async function fetchData() {
@@ -30,6 +45,7 @@ function SearchPage() {
 
   const searchArtist = async (e) => {
     e.preventDefault()
+<<<<<<< HEAD
     const { data } = await axios.get('https://api.spotify.com/v1/search', {
       headers: {
         'Authorization': `Bearer ${token}`
@@ -75,18 +91,87 @@ function SearchPage() {
             <h3>{artist.followers.total}</h3>
             <a href={artist.external_urls.spotify} >Link to page</a>
             <br></br>
-            {
-              artist.images.length ? <img width={"300px"} src={artist.images[0].url} alt='' />
-                : <div>No Images</div>
-            }
-
-          </div>
-        )
+=======
+    const searchArtists = async () => {
+      const { data } = await axios.get('https://api.spotify.com/v1/search', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        params: {
+          q: searchKey,
+          type: "artist"
+        }
       })
-        : <h2>Search for artist</h2>
-      }
+      setArtists(data.artists.items)
+    }
+    const searchAlbums = async () => {
+      const { data } = await axios.get("https://api.spotify.com/v1/search", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        params: {
+          q: searchKey,
+          type: "album"
+        }
+      })
+      setAlbums(data.albums.items)
+    }
+    const searchSongs = async () => {
+      const { data } = await axios.get("https://api.spotify.com/v1/search", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        params: {
+          q: searchKey,
+          type: "track"
+        }
+      })
+      setSongs(data.tracks.items)
+    }
+    setSearched(true)
+    searchArtists()
+    searchAlbums()
+    searchSongs()
+  }
+
+
+  return (
+    <div className='pageContainer'>
+      <div className='sideNav'>
+        <SideNav />
+      </div>
+      <main className='main'>
+        <div className='searchBarStaticDiv'>
+        <form className='form' onSubmit={searchSpotify}>
+          <input className="searchBar" type="text" placeholder="Search for artist" onChange={e => setSearchKey(e.target.value)} />
+          <button className="searchButton" type={"submit"}>Search</button>
+        </form>
+        </div>
+        <div className='entirePage'>
+          <div className='searchResults'>
+>>>>>>> 75cce32056d045655275d3d4fbfc7985fd11dc24
+            {
+              searched ? <ArtistCard artists={artists} />
+              : null
+                // : <GenreCards />
+            }
+            {
+              searched ? <SongCard songs={songs} />
+                : null
+            }
+            {
+              searched ? <AlbumCard albums={albums} />
+                : null
+            }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 75cce32056d045655275d3d4fbfc7985fd11dc24
+          </div>
+        </div>
+      </main>
     </div>
   )
 }
 
-export default SearchPage
+export default SearchPage;
