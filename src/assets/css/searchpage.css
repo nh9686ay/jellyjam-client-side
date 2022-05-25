@@ -1,28 +1,49 @@
 body {
     background-color: #021f59;
-    /* background-image: url('../public/jellygif.gif'); */
-    display: block;
-    background-size: cover;
 }
-.searchContainer {
+.pageContainer {
+    display: flex;
+    flex-direction: row;
+}
+.sideNav {
+    align-self: flex-start;
+}
+.main {
+    width: 100%;
+	border: 2px solid black;
+	height: 90%;
+	width: 85%;
+	margin: auto;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.3);
 
-
-    border-radius: 100%;
+}
+.searchBarStaticDiv {
+    width: 90%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    margin: 10px auto;
+}
+.form {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
 }
 .searchBar {
-    width: 90%;
-    height: 5%;
-    display: flex;
-    align-items: center;
+    width: 80%;
+    height: 10%;
     padding: 10px 10px 10px 25px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    margin: 0px 10px 10px 0px;
 }
-.searchButton {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    
+.sliderContainer {
+    margin: 20px auto;
+}
+.eachCard {
+    margin: 10px auto;
+}
+.searchResults {
+    display: inline-block;
+    margin: 25px 25px;
+
 }
