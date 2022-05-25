@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import SearchPage from './pages/SearchPage';
 import { Routes, Route} from 'react-router-dom';
 import AlbumById from './pages/AlbumById';
+import SignUp from './pages/SignUp';
 
 import './assets/css/App.css';
 
@@ -17,6 +18,7 @@ function App() {
 
             <Route path="/" element={<HomePage />}></Route>
             <Route path="/search" element={<SearchPage />}></Route>
+            <Route path="/signup" element={<SignUp />}></Route>
             <Route path="/album" element={<AlbumById />}></Route>
             
         </Routes>
