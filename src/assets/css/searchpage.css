@@ -1,0 +1,48 @@
+body {
+    background-color: #021f59;
+}
+.pageContainer {
+    display: flex;
+    flex-direction: row;
+}
+.sideNav {
+    align-self: flex-start;
+}
+.main {
+    width: 100%;
+	border: 2px solid black;
+	height: 90%;
+	width: 85%;
+	margin: auto;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.3);
+
+}
+.searchBarStaticDiv {
+    width: 90%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+.form {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+.searchBar {
+    width: 80%;
+    height: 10%;
+    padding: 10px 10px 10px 25px;
+    margin: 0px 10px 10px 0px;
+}
+.sliderContainer {
+    margin: 20px auto;
+}
+.eachCard {
+    margin: 10px auto;
+}
+.searchResults {
+    display: inline-block;
+    margin: 25px 25px;
+
+}

@@ -1,21 +1,39 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../assets/css/searchpage.css';
+import '../assets/css/itemCarousel.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick';
 
 function SongCard({ songs }) {
+	const settings = {
+		dots: true,
+		fade: false,
+		infinite: true,
+		speed: 400,
+		slidesToShow: 4,
+		arrows: true,
+		slidesToStroll: 1,
+		className: "slides"
+	}
 	return (
-		<div>
-			<div className='container'>
+		<div className='sliderContainer'>
+			<Slider {...settings}>
 				{songs.slice(0, 10).map((song, i) => {
 					return (
-						<div className='cards' key={i}>
-							<h1>{song.name}</h1>
-							<img width={"300px"} src={song.album.images[0].url} alt={song.name} />
-							<h2>{song.artists.name}</h2>
-							{console.log(song)}
-						</div>
+						<Link to={'/#'} className='cards' key={i}>
+							<div className='eachCard'>
+								<img className='eachCard' height={"200px"} width={"200px"} src={song.album.images[0].url} alt={song.name} />
+								<p className='eachCard'>{song.name}</p>
+								<p className='eachCard'>{song.artists.name}</p>
+								{console.log(song)}
+							</div>
+						</Link>
 					)
 				})
 				}
-			</div>
+			</Slider>
 		</div>
 	)
 }

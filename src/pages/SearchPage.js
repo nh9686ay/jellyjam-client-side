@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Buffer } from 'buffer';
-import '../searchpage.css'
 import ArtistCard from '../components/ArtistCard';
 import SongCard from '../components/SongCard';
 import AlbumCard from '../components/AlbumCard';
 // import Layout from '../components/layout/Layout';
 import SideNav from '../components/SideNav';
+import '../assets/css/searchpage.css';
 
 function SearchPage() {
   const client_id = '638824d8d1cf48bca579d7fa24c5ac40';
@@ -83,25 +83,31 @@ function SearchPage() {
     <div className='pageContainer'>
       <div className='sideNav'>
         <SideNav />
-        <SideNav />
       </div>
       <main className='main'>
-        <form className='wtf' onSubmit={searchSpotify}>
+        <div className='searchBarStaticDiv'>
+        <form className='form' onSubmit={searchSpotify}>
           <input className="searchBar" type="text" placeholder="Search for artist" onChange={e => setSearchKey(e.target.value)} />
           <button className="searchButton" type={"submit"}>Search</button>
         </form>
-      <div className='entirePage'>
-        <div className='searchResults'>
-          {
-            searched ? <ArtistCard artists={artists} />
-            : null
-          }
-          {/* <Layout /> */}
-          {/* <SongCard songs={songs} /> */}
-          {/* <AlbumCard albums={albums} /> */}
         </div>
-      </div>
-          </main>
+        <div className='entirePage'>
+          <div className='searchResults'>
+            {
+              searched ? <ArtistCard artists={artists} />
+                : null
+            }
+            {
+              searched ? <SongCard songs={songs} />
+                : null
+            }
+            {
+              searched ? <AlbumCard albums={albums} />
+                : null
+            }
+          </div>
+        </div>
+      </main>
     </div>
   )
 }
