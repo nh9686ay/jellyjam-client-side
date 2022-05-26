@@ -1,5 +1,32 @@
 body {
     background-color: #021f59;
+<<<<<<< HEAD
+    /* background-image: url('../public/jellygif.gif'); */
+    display: block;
+    background-size: cover;
+}
+.searchContainer {
+
+
+    border-radius: 100%;
+}
+.searchBar {
+    width: 90%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 10px 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.searchButton {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    
+=======
 }
 .pageContainer {
     display: flex;
@@ -59,4 +86,5 @@ body {
     display: inline-block;
     margin: 25px 25px;
 
+>>>>>>> 75cce32056d045655275d3d4fbfc7985fd11dc24
 }
