@@ -1,14 +1,18 @@
 body {
-    background-color: #021f59;
-    /* background-image: url('../public/jellygif.gif'); */
+    /* background-image: url('https://miro.medium.com/max/1000/1*PWdG4Rs528yuQgIOY0b8-g.jpeg'); */
+    background-image: url('https://cdn.dribbble.com/users/156849/screenshots/6993098/32.gif');
+    /* background-image: url('https://static.vecteezy.com/system/resources/previews/000/561/658/original/music-logo-concept-sound-wave-audio-technology-abstract-shape-vector.jpg'); */
+    /* background-image: url('https://img.freepik.com/free-vector/vector-modern-abstract-geometric-background_260559-238.jpg?w=2000&t=st=1653439200~exp=1653439800~hmac=d483b1a694462e7af704ff66d05e3ca27e7b116f9d9cec3747190a950d1ff9cb'); */
     display: block;
     background-size: cover;
+    animation: gradient 16s linear infinite;
+    animation-direction: alternate;
 }
+
 .searchContainer {
-
-
     border-radius: 100%;
 }
+
 .searchBar {
     width: 90%;
     height: 5%;
