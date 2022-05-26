@@ -1,18 +1,4 @@
-.side-nav {
-    background-color: #000000;
-    width: 260px;
-    height: 100vh;
-    padding: 10px 10px 0;
-    border-bottom: black solid 7px;
-    border-radius: 15px;
-}
-.side-nav h1 {
-    color: white;
-}
+
 h1:hover{
-    color:green;
-    /* transition: all 0.3s ease-in-out; */
-}
-.link {
-    text-decoration: none;
+    color:darkgrey;
 }
