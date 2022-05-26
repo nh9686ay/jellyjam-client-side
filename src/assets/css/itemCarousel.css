@@ -1,47 +1,49 @@
 
 
 .new-albums, .featured-playlists {
-    display: flex;
-    margin: 5rem;
-    justify-content: center; 
-    text-align: center;
+  display: flex;
+  margin: 5rem;
+  justify-content: center; 
+  text-align: center;
 }
 .album, .playlist {
-    display: flex;
-    justify-content: center;
-    /* padding: 5rem; */
+  display: flex;
+  justify-content: center;
+  /* padding: 5rem; */
 }
 .album-img, .playlist-img {
-    width: 12em;
+  width: 12em;
+  border-radius: 38px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
 .slides {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    justify-items: center;
-    padding: 15px;
-    /* padding-bottom: 0px; */
-    width: 70em;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  justify-items: center;
+  padding: 15px;
+  /* padding-bottom: 0px; */
+  width: 70em;
 }
 
 
 
 .slides {
-  position: relative;
+position: relative;
 }
 
 .slides .slick-prev,
 .slides .slick-next {
-  position: absolute;
-  top: 50%;
-  z-index:1;
+position: absolute;
+top: 50%;
+z-index:1;
 }
 
 .slides .slick-prev {
-  left: 0%;
+left: 0%;
 }
 
 .slides .slick-next {
-    right: 0%;
+  right: 0%;
 }

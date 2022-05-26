@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { SearchIcon } from '../shared/AppIcons'
+import '../assets/css/navbar.css'
 
 
-function SideNav() {
+function SideNav(props) {
+
   return (
-    <div className="side-nav">
+    <div className={"side-nav " + props.toggleMenu}>
         <div className="home-link-btn" >
             <Link to={'/'} className="link">
                 <h1>Home</h1>
