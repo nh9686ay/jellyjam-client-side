@@ -7,7 +7,7 @@ import SongCard from '../components/SongCard';
 import AlbumCard from '../components/AlbumCard';
 // import Layout from '../components/layout/Layout';
 import SideNav from '../components/SideNav';
-import '../assets/css/searchpage.css';
+
 
 function SearchPage() {
   const client_id = '638824d8d1cf48bca579d7fa24c5ac40';
@@ -35,7 +35,7 @@ function SearchPage() {
     fetchData();
   }, [])
 
-  const searchArtist = async (e) => {
+  const searchSpotify = async (e) => {
     e.preventDefault()
     const searchArtists = async () => {
       const { data } = await axios.get('https://api.spotify.com/v1/search', {
@@ -59,6 +59,7 @@ function SearchPage() {
           type: "album"
         }
       })
+      console.log(data)
       setAlbums(data.albums.items)
     }
     const searchSongs = async () => {

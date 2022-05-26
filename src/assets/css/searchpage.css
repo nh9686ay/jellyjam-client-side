@@ -1,6 +1,5 @@
 body {
     background-color: #021f59;
-<<<<<<< HEAD
     /* background-image: url('../public/jellygif.gif'); */
     display: block;
     background-size: cover;
@@ -26,7 +25,6 @@ body {
     display: flex;
     align-items: center;
     
-=======
 }
 .pageContainer {
     display: flex;
@@ -73,5 +71,4 @@ body {
     display: inline-block;
     margin: 25px 25px;
 
->>>>>>> 75cce32056d045655275d3d4fbfc7985fd11dc24
 }
