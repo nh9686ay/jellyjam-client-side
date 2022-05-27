@@ -18,6 +18,7 @@
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
     "react-spotify-player": "^1.0.4",
+    "react-spotify-web-playback": "^0.9.2",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"
   },

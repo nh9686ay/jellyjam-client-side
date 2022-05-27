@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import SideNav from '../components/SideNav';
 import NewAlbums from '../components/carousels/new-albums/NewAlbums';
 import FeaturedPlaylists from '../components/carousels/featured-playlists/FeaturedPlaylists';
-
 import SpotifyPlayer from 'react-spotify-player';
+
+
 function HomePage() {
   const size = {
     width: '100%',
@@ -51,12 +52,12 @@ function HomePage() {
     <div>
         <div className="navWrap" id="navWrap">
           <div className="logo-section">
-              <h1>JellyJam</h1>
-              <div className="search-container">
+              <h3>JellyJam</h3>
+              {/* <div className="search-container">
                   <Link to="/search">
                   <button>Search</button>
                   </Link>
-              </div>
+              </div> */}
               <div className="mobile_menu" onClick={toggleMobileMenu}>
                   <div className="dash_line"></div>
                   <div className="dash_line"></div>
@@ -69,12 +70,14 @@ function HomePage() {
         <div className="mainSection" id="mainSection">
             <NewAlbums />
             <FeaturedPlaylists />
+            <div className='player'>
             <SpotifyPlayer
-              uri="spotify:track:0VjIjW4GlUZAMYd2vXMi3b"
+              uri="spotify:artist:1Xyo4u8uXC1ZmMpatF05PJ"
               size={size}
               view={view}
               theme={theme}
             />
+            </div>
         </div>
     </div>
   )
