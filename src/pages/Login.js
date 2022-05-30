@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useState, useEffect } from 'react'
 
 
-function Login() {
+function Login({ loggedInUser, setLoggedInUser }) {
 
     const loginFormStructure = {
         email: '',
@@ -13,8 +14,8 @@ function Login() {
 
     const handleLoginChange = (e) => {
         setLoginFormData({...loginFormData, [e.target.id]: e.target.value })
-        console.log(loginFormData)
     }
+
     const handleLoginSubmit = async (e) => {
         e.preventDefault()
         const dataCopy = [...loginData]
@@ -22,10 +23,23 @@ function Login() {
         await setLoginData(dataCopy)
         console.log(loginFormData)
     }
+    
+    useEffect(() => {
+        if(loginData.length) {
+            console.log(loginData)
 
-    if(loginData.length) {
-        console.log(loginData)
-    }
+            axios.post('/user/login', {  
+                email: loginData[0].email,
+                password: loginData[0].password
+            })
+            .then(res => {
+                console.log(res)
+                setLoggedInUser(res.data[0])
+            })
+            .finally(() => console.log(loggedInUser))
+            .catch(console.error)
+        }
+    }, [loginData]);
 
 
 
@@ -40,7 +54,7 @@ function Login() {
                 <label htmlFor="password">Password: </label>
                 <input type="text" id="password" defaultValue={loginFormData.password} ></input>
 
-                <button type="submit">Sign Up</button>
+                <button type="submit">Login</button>
         </form>
 
     </div>

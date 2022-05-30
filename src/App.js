@@ -13,6 +13,10 @@ import Login from './pages/Login';
 function App() {
 
 
+    const [loggedInUser, setLoggedInUser] = useState([]);
+
+
+
   return (
     <div className="App">
         <Routes >
@@ -20,7 +24,7 @@ function App() {
             <Route path="/" element={<HomePage />}></Route>
             <Route path="/search" element={<SearchPage />}></Route>
             <Route path="/signup" element={<SignUp />}></Route>
-            <Route path="/login" element={<Login />}></Route>
+            <Route path="/login" element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />}></Route>
             <Route path="/album" element={<AlbumById />}></Route>
             
         </Routes>
