@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
+
 
 
 function Login({ loggedInUser, setLoggedInUser }) {
@@ -54,7 +56,9 @@ function Login({ loggedInUser, setLoggedInUser }) {
                 <label htmlFor="password">Password: </label>
                 <input type="text" id="password" defaultValue={loginFormData.password} ></input>
 
-                <button type="submit">Login</button>
+                <Link to={'/'} className="link">
+                    <button type="submit">Login</button>
+                </Link>
         </form>
 
     </div>
