@@ -8,8 +8,13 @@ import AlbumById from './pages/AlbumById';
 import SignUp from './pages/SignUp';
 
 import './assets/css/App.css';
+import Login from './pages/Login';
 
 function App() {
+
+
+    const [loggedInUser, setLoggedInUser] = useState([]);
+
 
 
   return (
@@ -19,6 +24,7 @@ function App() {
             <Route path="/" element={<HomePage />}></Route>
             <Route path="/search" element={<SearchPage />}></Route>
             <Route path="/signup" element={<SignUp />}></Route>
+            <Route path="/login" element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />}></Route>
             <Route path="/album" element={<AlbumById />}></Route>
             
         </Routes>

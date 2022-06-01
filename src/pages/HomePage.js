@@ -48,6 +48,7 @@ function HomePage() {
     };
   });
 
+
   return (
     <div>
         <div className="navWrap" id="navWrap">
