@@ -27,7 +27,7 @@ function SongCard({ songs }) {
 								<img className='eachCard' height={"200px"} width={"200px"} src={song.album.images[0].url} alt={song.name} />
 								<p className='eachCard'>{song.name}</p>
 								<p className='eachCard'>{song.artists.name}</p>
-								{console.log(song)}
+								{/* {console.log(song)} */}
 							</div>
 						</Link>
 					)

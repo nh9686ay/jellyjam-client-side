@@ -6,6 +6,7 @@ import ArtistCard from '../components/ArtistCard';
 import SongCard from '../components/SongCard';
 import AlbumCard from '../components/AlbumCard';
 import SideNav from '../components/SideNav';
+import GenreCards from '../components/GenreCards';
 import '../assets/css/searchpage.css';
 
 function SearchPage() {
@@ -18,6 +19,7 @@ function SearchPage() {
   const [albums, setAlbums] = useState([])
   const [songs, setSongs] = useState([])
   const [searched, setSearched] = useState(false)
+  const [genres, setGenres] = useState([])
 
   useEffect(() => {
     async function fetchData() {
@@ -31,8 +33,17 @@ function SearchPage() {
       })
       setToken(res.data.access_token)
     }
+    const getGenreCards = async () => {
+      const { data } = await axios.get('https://api.spotify.com/v1/recommendations/available-genre-seeds', {
+        headers: {
+          'Authorization': `Bearer ${token}`}
+      })
+      setGenres(data.genres)
+      console.log(data.genres)
+    }
     fetchData();
-  }, [])
+    getGenreCards();
+  }, [token])
 
   const searchSpotify = async (e) => {
     e.preventDefault()
@@ -80,7 +91,6 @@ function SearchPage() {
     searchSongs()
   }
 
-
   return (
     <div className='pageContainer'>
       <div className='sideNav'>
@@ -88,7 +98,7 @@ function SearchPage() {
       </div>
       <main className='main'>
         <div className='searchBarStaticDiv'>
-        <form className='form' onSubmit={searchSpotify}>
+        <form className='' onSubmit={searchSpotify}>
           <input className="searchBar" type="text" placeholder="Search for artist" onChange={e => setSearchKey(e.target.value)} />
           <button className="searchButton" type={"submit"}>Search</button>
         </form>
@@ -96,9 +106,12 @@ function SearchPage() {
         <div className='entirePage'>
           <div className='searchResults'>
             {
+              !searched ? <GenreCards genres={genres}/> : <h1>Loading</h1>
+            }
+            {
               searched ? <ArtistCard artists={artists} />
-              : null
-                // : <GenreCards />
+                : 
+                null
             }
             {
               searched ? <SongCard songs={songs} />

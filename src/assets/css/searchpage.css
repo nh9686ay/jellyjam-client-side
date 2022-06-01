@@ -27,6 +27,28 @@ body {
     
 
 }
+.entirePage {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.genreContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 5fr 5fr 5fr 5fr 5fr 5fr;
+    grid-gap: 2.5%;
+    /* overflow: auto; */
+    width: 140%;
+    border: 1px black solid;
+}
+.link {
+    border: 1px black solid;
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 .pageContainer {
     display: flex;
     flex-direction: row;
@@ -36,12 +58,12 @@ body {
 }
 .main {
     width: 100%;
-	border: 2px solid black;
+	/* border: 2px solid black; */
 	height: 90%;
 	width: 85%;
 	margin: auto;
 	overflow: auto;
-	background-color: rgba(0,0,0,0.3);
+	/* background-color: rgb(0,0,0,0.3); */
 
 }
 .searchBarStaticDiv {

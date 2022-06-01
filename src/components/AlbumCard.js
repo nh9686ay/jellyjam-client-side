@@ -27,7 +27,7 @@ function AlbumCard({ albums }) {
                 <img className='eachCard' height={"200px"} width={"200px"} src={album.images[0].url} alt={album.name} />
                 <p className='eachCard'>{album.name}</p>
                 <p className='eachCard'>By: {album.artists[0].name}</p>
-                {console.log(album)}
+                {/* {console.log(album)} */}
               </div>
             </Link>
           )
