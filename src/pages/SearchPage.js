@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { Buffer } from 'buffer';
 import '../assets/css/searchpage.css'
@@ -21,29 +21,32 @@ function SearchPage() {
   const [searched, setSearched] = useState(false)
   const [genres, setGenres] = useState([])
 
+  const fetchData = useCallback(async () => {
+    const params = new URLSearchParams();
+    params.append('grant_type', 'client_credentials');
+    const res = await axios.post('https://accounts.spotify.com/api/token', params, {
+      headers: {
+        'Authorization': 'Basic ' + (new Buffer.from(client_id + ':' + client_secret).toString('base64')),
+        'Content-Type': "application/x-www-form-urlencoded"
+      },
+    })
+    setToken(res.data.access_token)
+    getGenreCards(res.data.access_token)
+  }, [])
+
+  const getGenreCards = async (token) => {
+    const { data } = await axios.get('https://api.spotify.com/v1/recommendations/available-genre-seeds', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+    setGenres(data.genres)
+    console.log(data.genres)
+  }
+
   useEffect(() => {
-    async function fetchData() {
-      const params = new URLSearchParams();
-      params.append('grant_type', 'client_credentials');
-      const res = await axios.post('https://accounts.spotify.com/api/token', params, {
-        headers: {
-          'Authorization': 'Basic ' + (new Buffer.from(client_id + ':' + client_secret).toString('base64')),
-          'Content-Type': "application/x-www-form-urlencoded"
-        },
-      })
-      setToken(res.data.access_token)
-    }
-    const getGenreCards = async () => {
-      const { data } = await axios.get('https://api.spotify.com/v1/recommendations/available-genre-seeds', {
-        headers: {
-          'Authorization': `Bearer ${token}`}
-      })
-      setGenres(data.genres)
-      console.log(data.genres)
-    }
     fetchData();
-    getGenreCards();
-  }, [token])
+  }, [])
 
   const searchSpotify = async (e) => {
     e.preventDefault()
@@ -93,36 +96,36 @@ function SearchPage() {
 
   return (
     <div className='pageContainer'>
-      <div className='sideNav'>
+      <div className='navWrap'>
         <SideNav />
       </div>
-      <main className='main'>
-        <div className='searchBarStaticDiv'>
-        <form className='' onSubmit={searchSpotify}>
-          <input className="searchBar" type="text" placeholder="Search for artist" onChange={e => setSearchKey(e.target.value)} />
+      <div className='searchBarContainer'>
+        <form onSubmit={searchSpotify}>
+          <input type="text" placeholder="Search JellyJam for new music" 
+            onChange={e => setSearchKey(e.target.value)} />
           <button className="searchButton" type={"submit"}>Search</button>
         </form>
-        </div>
-        <div className='entirePage'>
-          <div className='searchResults'>
-            {
-              !searched ? <GenreCards genres={genres}/> : <h1>Loading</h1>
-            }
-            {
-              searched ? <ArtistCard artists={artists} />
-                : 
-                null
-            }
-            {
-              searched ? <SongCard songs={songs} />
-                : null
-            }
-            {
-              searched ? <AlbumCard albums={albums} />
-                : null
-            }
+      </div>
+      <main className='main'>
+        {
+          !searched ? <GenreCards genres={genres} /> 
+          : null
+        }
+        <div className="searchResults">
 
-          </div>
+          {
+            searched ? <ArtistCard artists={artists} />
+              :
+              null
+          }
+          {
+            searched ? <SongCard songs={songs} />
+              : null
+          }
+          {
+            searched ? <AlbumCard albums={albums} />
+              : null
+          }
         </div>
       </main>
     </div>
