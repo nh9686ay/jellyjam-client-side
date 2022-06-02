@@ -45,15 +45,22 @@ function FeaturedPlaylists() {
     //   }
     //   fetchData();
         const playlistsFet = async () => {
-
-            const { data } = await axios.get('playlist/featured')
+            const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
+                ? "https://jellyjam-server.herokuapp.com/playlist/featured"
+                : "playlist/featured" 
+            const { data } = await axios.get(url)
             console.log(data)
             
             setFeaturedPlaylists(data)
         }
         playlistsFet()
     }, [])
-  
+
+    //this will be in netlify
+    // .environemtnal:
+    // REACT_APP_IS_DEPLOYED=true
+
+
 
 
     if(!featuredPlaylists) {
