@@ -31,11 +31,11 @@ function FeaturedPlaylist({ featuredPlaylists }) {
                         return (
                             //link to album page by id
                             <Link to={'/#'} key={i} className="link">
-                                <div>
-                                    <h2>{playlist.name}</h2>
-                                </div>
                                 <div key={i} className="playlist" >
                                     {playlist.image_url && <img className="playlist-img" src={playlist.image_url} />}
+                                </div>
+                                <div>
+                                    <h2>{playlist.name}</h2>
                                 </div>
                             </Link>
 

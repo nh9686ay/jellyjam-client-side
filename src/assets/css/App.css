@@ -109,11 +109,8 @@ h3{
     position: relative;
     margin-bottom: 5px;
   }
+ 
 
-  .mainSection{
-    width: 100% !important;
-    left: 0px !important;
-  }
 
   .resizeBar{
     display: none !important;
@@ -150,7 +147,6 @@ h3{
   border-bottom: none;
   border-radius: 0;
 }
-
 .mainSection{
   width: calc(100% - 350px);
   left: 350px;

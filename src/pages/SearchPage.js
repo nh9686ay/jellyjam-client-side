@@ -108,24 +108,27 @@ function SearchPage() {
       </div>
       <main className='main'>
         {
-          !searched ? <GenreCards genres={genres} /> 
-          : null
+          !searched && <GenreCards genres={genres} />
         }
         <div className="searchResults">
-
-          {
-            searched ? <ArtistCard artists={artists} />
-              :
-              null
-          }
-          {
-            searched ? <SongCard songs={songs} />
-              : null
-          }
-          {
-            searched ? <AlbumCard albums={albums} />
-              : null
-          }
+          {searched && (
+            <>
+              <h2>Artists:</h2>
+              <ArtistCard artists={artists} />
+            </>
+          )}
+          {searched && (
+            <>
+              <h2>Songs:</h2>
+              <SongCard songs={songs} />
+            </>
+          )}
+          {searched && (
+            <>
+              <h2>Albums:</h2>
+              <AlbumCard albums={albums} />
+            </>
+          )}
         </div>
       </main>
     </div>

@@ -1,6 +1,10 @@
 body {
     overflow: hidden;
 }
+h2 {
+    color: white;
+    float: left;
+}
 .pageContainer {
     display: flex;
     overflow: auto;
@@ -23,7 +27,7 @@ body {
     z-index: 1;
 }
 .searchButton {
-
+    left: 950px;
 }
 .genreContainer {
     /* background-color: blueviolet; */
