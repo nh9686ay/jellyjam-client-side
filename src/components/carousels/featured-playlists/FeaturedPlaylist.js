@@ -35,7 +35,7 @@ function FeaturedPlaylist({ featuredPlaylists }) {
                                     <h2>{playlist.name}</h2>
                                 </div>
                                 <div key={i} className="playlist" >
-                                    {playlist.images && <img className="playlist-img" src={playlist.images[0].url} />}
+                                    {playlist.image_url && <img className="playlist-img" src={playlist.image_url} />}
                                 </div>
                             </Link>
 
