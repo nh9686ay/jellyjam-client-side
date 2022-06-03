@@ -16,6 +16,7 @@ function FeaturedPlaylists() {
 
     useEffect(() => {
        
+    
         const playlistsFet = async () => {
             const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
                 ? "https://jellyjam-server.herokuapp.com/playlist/featured"
@@ -28,8 +29,7 @@ function FeaturedPlaylists() {
         playlistsFet()
     }, [])
 
-    //this will be in netlify
-    // .environemtnal:
+    //this will be in netlify and .env file
     // REACT_APP_IS_DEPLOYED=true
 
 

@@ -19,12 +19,12 @@ function SideNav(props) {
             </Link>
         </div>
         <div className="library-link-btn" >
-            <Link to={'/#'} className="link" >
+            <Link to={'/library'} className="link" >
                 <h1>Library</h1>
             </Link>
         </div>
         <div className="create-playlist-link-btn" >
-            <Link to={'/#'} className="link" >
+            <Link to={'/create/playlist'} className="link" >
                 <h1>Create Playlist</h1>
             </Link>
         </div>
