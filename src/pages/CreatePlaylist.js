@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import SideNav from '../components/SideNav';
 
 function CreatePlaylist() {
+
+
 
     const playlistInitForm = {
         des: '',
@@ -13,7 +17,7 @@ function CreatePlaylist() {
     const [playlist, setPlaylist] = useState() 
 
     const createPlaylistChange = (e) => {
-        setPlaylistForm({...playlistForm, [e.target.id]: e.target.value })
+        setPlaylistForm({ ...playlistForm, [e.target.id]: e.target.value })
         console.log(playlistForm)
         console.log(playlist)
     }
@@ -22,12 +26,18 @@ function CreatePlaylist() {
         e.preventDefault();
         setPlaylist(playlistForm)
         console.log(playlist)
+        //reset input fields 
+        // setPlaylistForm(playlistInitForm)
     }
     
+
     if(playlist) {
         
         console.log(`playlist${playlist}`)
-        axios.post('/playlist/createplaylist', {
+        const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
+                ? "https://jellyjam-server.herokuapp.com/playlist/createplaylist"
+                : "/playlist/createplaylist" 
+        axios.post(url, {
             des: playlist.des,
             image_url: playlist.image_url,
             name: playlist.name
@@ -41,24 +51,33 @@ function CreatePlaylist() {
 
   return (
     <div>
-        <h1>Create your own Playlist</h1>
+        <div>
+            <h1>Create your own Playlist</h1>
+        </div>
 
-        <form onSubmit={createPlaylistSubmit} onChange={createPlaylistChange}>
+        
+        <form onSubmit={createPlaylistSubmit}>
 
             <label htmlFor="name">Name: </label>
-            <input type="text" id="name" defaultValue={playlistForm.name} ></input>
+            <input type="text" id="name" value={playlistForm.name} onChange={createPlaylistChange}></input>
             <br></br>
 
             <label htmlFor="des">Description: </label>
-            <input type="text" id="des" defaultValue={playlistForm.des} ></input>
+            <input type="text" id="des" value={playlistForm.des} onChange={createPlaylistChange}></input>
             <br></br>
 
             <label htmlFor="image_url">Image: </label>
-            <input type="text" id="image_url" defaultValue={playlistForm.image_url} ></input>
+            <input type="text" id="image_url" value={playlistForm.image_url} onChange={createPlaylistChange}></input>
             <br></br>
             
+ 
             <button type="submit">Create Playlist</button>
+     
         </form>
+ 
+        <Link to={'/'} className="link">
+            <button>HOME</button>
+        </Link>
 
     </div>
   )
