@@ -34,16 +34,15 @@ function Album({ albums }) {
                 {
                     albums.slice(0, 10).map((album, i) => {
                         return (
-                            //link to album page by id
                             <Link to={`/album/${album.id}`} key={i} className="link">
-                                <div>
-                                    <h2>{album.name}</h2>
-                                </div>
+
                                 <div key={i} className="album" >
                                     {album.images.length && <img id = {album.id[1]} className="album-img" src={album.images[1].url} />}
                                 </div>
+                                <div>
+                                    <h2>{album.name}</h2>
+                                </div>
                             </Link>
-
                     )
                     })
                 }
