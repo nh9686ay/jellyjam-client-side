@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import SearchSong from './SearchSong'
 
 function PlaylistDetails({ playlist }) {
 
@@ -14,6 +15,7 @@ function PlaylistDetails({ playlist }) {
     }
 
 
+
   return (
     <div>
         <h2>PlaylistDetails</h2>
@@ -24,9 +26,8 @@ function PlaylistDetails({ playlist }) {
             <h4>{playlist.description}</h4>
             <br></br>
 
-            
-
             <button onClick={() => deletePlaylist(playlist._id)}>Delete</button>
+            <SearchSong />
         </div>
 
     </div>
