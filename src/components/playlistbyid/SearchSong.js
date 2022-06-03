@@ -22,11 +22,11 @@ function SearchSong() {
         await setSearchKey(songForm)
 
         console.log(searchkey)
-        // const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
-        //         ? "https://jellyjam-server.herokuapp.com/playlist/createplaylist"
-        //         : "/playlist/createplaylist" 
+        const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
+                ? "https://jellyjam-server.herokuapp.com/playlist/searchsong/" + searchkey.nameSearch
+                : 'http://localhost:5005/playlist/searchsong/' + searchkey.nameSearch 
        
-        const { data } = await axios.get('http://localhost:5005/playlist/searchsong/' + searchkey.nameSearch)
+        const { data } = await axios.get(url)
         console.log(data)
         setSongs(data)
         

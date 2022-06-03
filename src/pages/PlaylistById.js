@@ -11,7 +11,10 @@ function PlaylistById() {
 
     useEffect(() => {
         const fetchPlaylist = async () => {
-            const { data } = await axios.get('/playlist/playlistbyid/' + id )
+            const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
+            ? 'https://jellyjam-server.herokuapp.com/playlist/playlistbyid/' + id 
+            : '/playlist/playlistbyid/' + id 
+            const { data } = await axios.get(url)
             console.log(data)
             setPlaylist(data)
         }

@@ -6,11 +6,10 @@ function PlaylistDetails({ playlist }) {
 
 
     async function deletePlaylist(id) {
-        //Need to deploy backend again before using this
-        // const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
-        //     ? 'https://jellyjam-server.herokuapp.com/playlist/deleteplaylist/' + id
-        //     : 'playlist/deleteplaylist/' + id 
-        const { data } = await axios.delete('playlist/deleteplaylist/' + id )
+        const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
+            ? 'https://jellyjam-server.herokuapp.com/playlist/deleteplaylist/' + id
+            : 'playlist/deleteplaylist/' + id 
+        const { data } = await axios.delete(url)
         console.log(data)
     }
 
