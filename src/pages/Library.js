@@ -1,8 +1,15 @@
 import React from 'react'
+import Playlists from '../components/library/Playlists'
+
 
 function Library() {
   return (
-    <div>Library</div>
+    <div>
+        <h1>Library</h1>
+
+        <Playlists />
+
+    </div>
   )
 }
 
