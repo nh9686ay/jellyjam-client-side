@@ -15,6 +15,7 @@ function FeaturedPlaylists() {
     const [featuredPlaylists, setFeaturedPlaylists] = useState([])
 
     useEffect(() => {
+       
     
         const playlistsFet = async () => {
             const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
