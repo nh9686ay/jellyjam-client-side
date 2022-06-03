@@ -15,6 +15,7 @@ function HomePage() {
 
   return (
     <div>
+      <Header />
         <div className="navWrap">
             <div className="logo-section">
                 <h3>JellyJam</h3>

@@ -1,0 +1,80 @@
+
+
+
+#albumImgContainer{
+  display:flex;
+  justify-content: center;
+  align-content:stretch;
+  position: absolute;
+  left:30%;
+  border-radius: 5%;
+  background-color: aqua;
+}
+
+#albumArtists{
+  display:inline-flex;
+  flex-direction: row;
+  align-content:flex-start;
+  justify-content: space-around;
+  margin-top: 0;
+}
+
+#allAlbumInfoContainer{
+  text-align: right;
+  margin-right: 20%;
+ position: relative;
+ left:10%;
+ 
+}
+
+#albumInfoContainer{
+  display:inline-flex;
+  flex-direction: row;
+  padding-top: 0;
+  justify-content: space-between;
+ 
+}
+li{
+
+  list-style-type:disc;
+  padding-left: 10px;
+  text-align: left;
+  
+  justify-content: flex-end;
+}
+
+
+#albumArtists{
+  list-style-type: none;
+}
+img{
+  border-radius: 5%;
+}
+#albumType{
+  position: relative;
+  right:12%;
+}
+
+#runtime{
+  list-style-type: none;
+}
+#singleTrack{
+  list-style-type:decimal;
+}
+
+#albumTracksContainer{
+  display:flex;
+  justify-content:flex-end;
+  position:relative;
+  right: 20%; 
+}
+
+#singleTrack:hover{
+  background-color: gray;
+  opacity: .8;
+
+}
+#albumType{
+  position:relative;
+  right:41%
+}

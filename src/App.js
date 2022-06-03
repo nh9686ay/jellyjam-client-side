@@ -19,7 +19,8 @@ function App() {
             <Route path="/" element={<HomePage />}></Route>
             <Route path="/search" element={<SearchPage />}></Route>
             <Route path="/signup" element={<SignUp />}></Route>
-            <Route path="/album" element={<AlbumById />}></Route>
+            <Route path="/album/:id" element={<AlbumById />}></Route>
+            
             
         </Routes>
  </div>
