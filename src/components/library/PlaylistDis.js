@@ -5,7 +5,11 @@ import axios from 'axios';
 function PlaylistDis({ playlists }) {
 
     async function deletePlaylist(id) {
-        const { data } = await axios.delete('http://localhost:5005/playlist/deleteplaylist/' + id)
+        //Need to deploy backend again before using this
+        // const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
+        //     ? 'https://jellyjam-server.herokuapp.com/playlist/deleteplaylist/' + id
+        //     : 'playlist/deleteplaylist/' + id 
+        const { data } = await axios.delete('playlist/deleteplaylist/' + id )
         console.log(data)
     }
 
@@ -22,7 +26,7 @@ function PlaylistDis({ playlists }) {
                 return (
                     <div key={i}>
                         {/* Go to playlist by id page */}
-                        <Link to={'#'} className="link">
+                        <Link to={'/playlist/' + playlist._id} className="link">
                             <h3>{playlist.name}</h3>
                             <img src={playlist.image_url} alt='playlist image'/>
                             <h4>{playlist.description}</h4>

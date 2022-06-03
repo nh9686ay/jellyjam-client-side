@@ -8,12 +8,15 @@ import AlbumById from './pages/AlbumById';
 import SignUp from './pages/SignUp';
 import CreatePlaylist from './pages/CreatePlaylist';
 import Library from './pages/Library';
+import PlaylistById from './pages/PlaylistById';
+
 
 import './assets/css/App.css';
 import Login from './pages/Login';
 
 function App() {
 
+    
 
     const [loggedInUser, setLoggedInUser] = useState([]);
 
@@ -30,6 +33,8 @@ function App() {
             <Route path="/album/:id" element={<AlbumById />}></Route>
             <Route path="/create/playlist" element={<CreatePlaylist />}></Route>
             <Route path="/library" element={<Library />}></Route>
+            <Route path="/playlist/:id" element={<PlaylistById />}></Route>
+
             
         </Routes>
  </div>
