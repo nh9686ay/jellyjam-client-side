@@ -11,7 +11,7 @@ function Playlists() {
         const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
             ? "https://jellyjam-server.herokuapp.com/playlist/playlistlibrary"
             : "playlist/playlistlibrary" 
-        const { data } = await axios.get('playlist/playlistlibrary')
+        const { data } = await axios.get(url)
         console.log(data)
             
         setPlaylistsLib(data) 
