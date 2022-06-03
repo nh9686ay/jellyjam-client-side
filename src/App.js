@@ -7,6 +7,7 @@ import { Routes, Route} from 'react-router-dom';
 import AlbumById from './pages/AlbumById';
 import SignUp from './pages/SignUp';
 import CreatePlaylist from './pages/CreatePlaylist';
+import Library from './pages/Library';
 
 import './assets/css/App.css';
 import Login from './pages/Login';
@@ -28,6 +29,7 @@ function App() {
             <Route path="/login" element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />}></Route>
             <Route path="/album" element={<AlbumById />}></Route>
             <Route path="/create/playlist" element={<CreatePlaylist />}></Route>
+            <Route path="/library" element={<Library />}></Route>
 
             
         </Routes>
