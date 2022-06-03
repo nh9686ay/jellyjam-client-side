@@ -1,13 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import '../../../assets/css/itemCarousel.css';
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 
-
 function FeaturedPlaylist({ featuredPlaylists }) {
-
 
     const settings = {
         dots: true,
@@ -19,7 +17,6 @@ function FeaturedPlaylist({ featuredPlaylists }) {
         slidesToStroll: 1,
         className: "slides"
     }
-
 
   return (
     <div>

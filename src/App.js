@@ -27,10 +27,9 @@ function App() {
             <Route path="/search" element={<SearchPage />}></Route>
             <Route path="/signup" element={<SignUp />}></Route>
             <Route path="/login" element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />}></Route>
-            <Route path="/album" element={<AlbumById />}></Route>
+            <Route path="/album/:id" element={<AlbumById />}></Route>
             <Route path="/create/playlist" element={<CreatePlaylist />}></Route>
             <Route path="/library" element={<Library />}></Route>
-
             
         </Routes>
  </div>

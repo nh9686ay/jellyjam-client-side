@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { Buffer } from 'buffer';
-import '../assets/css/searchpage.css'
 import ArtistCard from '../components/ArtistCard';
 import SongCard from '../components/SongCard';
 import AlbumCard from '../components/AlbumCard';
@@ -47,6 +46,7 @@ function SearchPage() {
   useEffect(() => {
     fetchData();
   }, [])
+
 
   const searchSpotify = async (e) => {
     e.preventDefault()
@@ -105,6 +105,7 @@ function SearchPage() {
             onChange={e => setSearchKey(e.target.value)} />
           <button className="searchButton" type={"submit"}>Search</button>
         </form>
+
       </div>
       <main className='main'>
         {
