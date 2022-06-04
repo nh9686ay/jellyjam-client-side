@@ -1,0 +1,16 @@
+[[redirects]]
+    from = "/#"
+    to = "/index.html"
+    status = 200
+
+[[redirects]]
+  from = "/playlist/629978b96fbe2c52f953078f?"
+  to = "/playlist/629978b96fbe2c52f953078f"
+  status = 301
+  force = false
+  query = {path = ":path"}
+  conditions = {Language = ["en"], Country = ["US"], Role = ["admin"]}
+[[redirects]]
+    from = "/playlist/:id?"
+    to = "/playlist/:id"
+    status = 301
