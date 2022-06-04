@@ -19,7 +19,7 @@ function AlbumById() {
   function millisToMinutesAndSeconds(millis) {
     var minutes = Math.floor(millis / 60000);
     var seconds = ((millis % 60000) / 1000).toFixed(0);
-    return minutes + " min " + (seconds < 10 ? '0' : '') + seconds + " sec";
+    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds ;
   }
   useEffect(() => {
     
@@ -76,27 +76,29 @@ function AlbumById() {
       <img src ={album.images[1].url}/>
     </div>
     <div id = "allAlbumInfoContainer">
-    <h2 id = "albumType">{album.album_type}</h2>
+    <h2 id = "albumType">{album.album_type}</h2><br></br><br></br>
     <h1>{album.name}</h1>
     <div id = "albumInfoContainer"> 
     <li id = "albumArtists">{album.artists.map((artist)=>{
       return <li id ="albumArtists"> {artist.name}</li>
     })}</li>
     <li>{album.release_date.substr(0,4)}</li>
-    <li>{album.total_tracks} songs,</li>
-    <li id = "runtime">{millisToMinutesAndSeconds(album.tracks.items[0].duration_ms)}</li>
+    <li>{album.total_tracks} songs</li>
+    {/* <li id = "runtime">{millisToMinutesAndSeconds(album.tracks.items[0].duration_ms)}</li> */}
+    </div>
+    </div>
+
+    <div className="navWrap">
+    <SideNav/>
     </div>
     </div>
     <div id = "albumTracksContainer">
       <ul className = "albumTracks">{album.tracks.items.map((item)=>{
-        return   <li id ="singleTrack">{item.name}</li>
+        return  <li id ="singleTrack">{item.name}{millisToMinutesAndSeconds(item.duration_ms)}</li>
+       
       })}
 
       </ul>
-    </div>
-    <div className="navWrap">
-    <SideNav/>
-    </div>
     </div>
     </div>
     
