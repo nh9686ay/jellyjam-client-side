@@ -8,7 +8,7 @@ function LoginButton() {
     <div>
      
        <Link to={`/login`}  className="link">
-        <button id="loginButton">Login</button>
+        <button className = "glow-on-hover">Login</button>
         </Link>
     </div>
   )

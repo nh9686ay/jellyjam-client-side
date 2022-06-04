@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import SideNav from '../components/SideNav';
 
 
 
@@ -60,6 +61,9 @@ function Login({ loggedInUser, setLoggedInUser }) {
                     <button type="submit">Login</button>
                 </Link>
         </form>
+        <div className='navWrap'>
+            <SideNav />
+        </div>
 
     </div>
   )

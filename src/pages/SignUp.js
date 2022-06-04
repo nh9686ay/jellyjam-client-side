@@ -1,6 +1,6 @@
 import React, { useState }from 'react'
 import axios from 'axios';
-
+import SideNav from '../components/SideNav';
 
 function SignUp() {
 
@@ -53,6 +53,9 @@ function SignUp() {
                 <input type="text" id="password" defaultValue={signUpForm.password} ></input>
                 <button type="submit">Sign Up</button>
             </form>
+            <div className='navWrap'>
+                <SideNav />
+            </div>
 
         </div>
     )
