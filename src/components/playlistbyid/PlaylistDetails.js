@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import SearchSong from './SearchSong'
 
-function PlaylistDetails({ playlist, fetchPlaylist }) {
+function PlaylistDetails({ playlist, fetchPlaylist, setPlaylist }) {
 
 
     async function deletePlaylist(id) {
@@ -57,7 +57,7 @@ function PlaylistDetails({ playlist, fetchPlaylist }) {
             }
             <br></br>
 
-            <SearchSong playlist={playlist} fetchPlaylist={fetchPlaylist} />
+            <SearchSong setPlaylist={setPlaylist} playlist={playlist} fetchPlaylist={fetchPlaylist} />
         </div>
 
     </div>

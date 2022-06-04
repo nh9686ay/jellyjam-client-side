@@ -2,7 +2,7 @@ import React, { useState }from 'react';
 import axios from 'axios';
 
 
-function SearchSong({ playlist, fetchPlaylist }) {
+function SearchSong({ playlist, fetchPlaylist, setPlaylist }) {
 
    
   
@@ -41,6 +41,8 @@ function SearchSong({ playlist, fetchPlaylist }) {
        
         const { data } = await axios.get(url)
         console.log(data)
+        await setPlaylist(data)
+        window.location.reload(true);
     }
     
 
