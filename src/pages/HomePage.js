@@ -5,7 +5,7 @@ import NewAlbums from '../components/carousels/new-albums/NewAlbums';
 import FeaturedPlaylists from '../components/carousels/featured-playlists/FeaturedPlaylists';
 import SpotifyPlayer from 'react-spotify-player';
 import Header from '../components/header/Header';
-
+import '../assets/css/darkmode.css';
 
 function HomePage() {
   const size = {
