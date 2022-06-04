@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/css/searchpage.css';
 import '../assets/css/itemCarousel.css';
+import '../assets/css/darkmode.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';

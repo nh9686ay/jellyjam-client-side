@@ -1,0 +1,74 @@
+
+body 
+{
+    margin: 0;
+    padding: 0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
+    
+}
+
+main
+{
+    margin: 5vh 15%;
+
+}
+
+h1 
+{
+     font-size: 40px;
+     text-align:center;
+     font-weight: 400;
+     
+}
+
+img 
+{
+    width: 100%;
+    height:auto;
+}
+
+p 
+{
+    text-align: justify;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+label 
+{
+    position: absolute;
+    width: 45px;
+    height: 22px;
+    right: 20px;
+    top: 20px;
+    border: 2px solid;
+    border-radius: 20px;
+}
+
+label:before
+{
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 20px;
+    left: 1px;
+    top: 1px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #000;
+    transition: 0.4s;
+}
+
+label.active:before 
+{
+    left: 24px;
+    background: blue;
+
+}
+body.night
+{
+    background: #000;
+    color: blue;
+
+}

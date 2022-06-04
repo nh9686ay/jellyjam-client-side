@@ -70,6 +70,7 @@ a:after
     transform: translateX(200px) rotate(325deg);
     opacity: 0;
     visibility: hidden;
+   
 }
 a.active::after
 {
