@@ -103,7 +103,7 @@ function SearchPage() {
         <form onSubmit={searchSpotify}>
           <input type="text" placeholder="Search JellyJam for new music" 
             onChange={e => setSearchKey(e.target.value)} />
-          <button className="searchButton" type={"submit"}>Search</button>
+            {/* <button className="searchButton" type={"submit"}>Search</button> */}
         </form>
 
       </div>
