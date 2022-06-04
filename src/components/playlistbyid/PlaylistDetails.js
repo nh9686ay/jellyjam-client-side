@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchSong from './SearchSong'
+import { useParams } from 'react-router-dom';
 
-function PlaylistDetails({ playlist, fetchPlaylist }) {
-
+function PlaylistDetails({ playlist,  setPlaylist }) {
+    
+    const { id } = useParams();
 
     async function deletePlaylist(id) {
         const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
@@ -19,7 +21,29 @@ function PlaylistDetails({ playlist, fetchPlaylist }) {
                 : `http://localhost:5005/playlist/deletesong/${id}/${playlist._id}`  
         const { data } = await axios.put(url)
         console.log(data)
+        const fetchPlaylist = async () => {
+            const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
+            ? 'https://jellyjam-server.herokuapp.com/playlist/playlistbyid/' + id 
+            : '/playlist/playlistbyid/' + id 
+            const { data } = await axios.get(url)
+            console.log(data)
+            setPlaylist(data)
+        }
+        fetchPlaylist()
     }
+
+
+    const fetchPlaylist = async () => {
+        const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
+        ? 'https://jellyjam-server.herokuapp.com/playlist/playlistbyid/' + id 
+        : '/playlist/playlistbyid/' + id 
+        const { data } = await axios.get(url)
+        console.log(data)
+        setPlaylist(data)
+    }
+    useEffect(() => {
+        fetchPlaylist();
+    }, [])
 
 
 
@@ -31,7 +55,10 @@ function PlaylistDetails({ playlist, fetchPlaylist }) {
         <div>
             <h3>{playlist.name}</h3>
             <img src={playlist.image_url} alt='playlist image'/>
-            <button onClick={() => deletePlaylist(playlist._id)}>Delete</button>
+            <form onSubmit={() => deletePlaylist(playlist._id)}>
+
+            <button >Delete</button>
+            </form>
             <h4>{playlist.description}</h4>
             <br></br>
 
@@ -42,7 +69,7 @@ function PlaylistDetails({ playlist, fetchPlaylist }) {
                         <h1>{track.name}</h1>
                         {track.album.images.length ? 
                         <div>
-                            <img src={track.album.images[1].url} alt='song img' />
+                            <img className="playlist-img" src={track.album.images[1].url} alt='song img' />
                         </div>
                         : null
                         }
@@ -50,6 +77,7 @@ function PlaylistDetails({ playlist, fetchPlaylist }) {
 
                         <button type="submit">Delete Song</button>
                         </form>
+                        {/* <button onClick={() => deleteSong(track.id)}>Delete Song</button> */}
                     </div>
                 )
             })
@@ -57,7 +85,7 @@ function PlaylistDetails({ playlist, fetchPlaylist }) {
             }
             <br></br>
 
-            <SearchSong playlist={playlist} fetchPlaylist={fetchPlaylist} />
+            <SearchSong setPlaylist={setPlaylist} playlist={playlist} fetchPlaylist={fetchPlaylist} />
         </div>
 
     </div>

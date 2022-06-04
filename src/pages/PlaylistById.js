@@ -30,10 +30,11 @@ function PlaylistById() {
     <div>
         <h1>PlaylistById</h1>
 
-        <PlaylistDetails fetchPlaylist={fetchPlaylist} playlist={playlist} />
+        
         <div className='navWrap'>
             <SideNav />
         </div>
+        <PlaylistDetails setPlaylist={setPlaylist} fetchPlaylist={fetchPlaylist} playlist={playlist} />
 
     </div>
   )
