@@ -22,7 +22,7 @@ function AlbumById() {
     return minutes + " min " + (seconds < 10 ? '0' : '') + seconds + " sec";
   }
   useEffect(() => {
-    console.log("hello");
+    
     async function fetchData(e) {
       const params = new URLSearchParams();
       params.append("grant_type", "client_credentials");
@@ -88,13 +88,15 @@ function AlbumById() {
     </div>
     </div>
     <div id = "albumTracksContainer">
-      <ul class = "albumTracks">{album.tracks.items.map((item)=>{
+      <ul className = "albumTracks">{album.tracks.items.map((item)=>{
         return   <li id ="singleTrack">{item.name}</li>
       })}
 
       </ul>
     </div>
+    <div className="navWrap">
     <SideNav/>
+    </div>
     </div>
     </div>
     

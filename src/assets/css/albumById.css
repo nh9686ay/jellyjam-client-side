@@ -8,7 +8,7 @@
   position: absolute;
   left:30%;
   border-radius: 5%;
-  background-color: aqua;
+  
 }
 
 #albumArtists{
@@ -51,8 +51,7 @@ img{
   border-radius: 5%;
 }
 #albumType{
-  position: relative;
-  right:12%;
+text-align:center;
 }
 
 #runtime{
@@ -77,4 +76,12 @@ img{
 #albumType{
   position:relative;
   right:41%
+}
+@media only screen and (max-width: 1023px) {
+  #allAlbumInfoContainer{
+   
+  display:grid;
+  align-items: center;
+
+  }
 }
