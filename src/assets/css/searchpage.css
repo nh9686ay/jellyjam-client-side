@@ -1,0 +1,94 @@
+body {
+    background-color: #021f59;
+    /* background-image: url('../public/jellygif.gif'); */
+    display: block;
+    background-size: cover;
+}
+.searchContainer {
+
+
+    border-radius: 100%;
+}
+.searchBar {
+    width: 90%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 10px 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.searchButton {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    
+
+}
+.pageContainer {
+    display: flex;
+    flex-direction: row;
+}
+.sideNav {
+    align-self: flex-start;
+}
+.main {
+    width: 100%;
+	border: 2px solid black;
+	height: 90%;
+	width: 85%;
+	margin: auto;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.3);
+
+}
+.searchBarStaticDiv {
+    width: 90%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    margin: 10px auto;
+}
+.form {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    /* background-image: url('https://miro.medium.com/max/1000/1*PWdG4Rs528yuQgIOY0b8-g.jpeg'); */
+    background-image: url('https://cdn.dribbble.com/users/156849/screenshots/6993098/32.gif');
+    /* background-image: url('https://static.vecteezy.com/system/resources/previews/000/561/658/original/music-logo-concept-sound-wave-audio-technology-abstract-shape-vector.jpg'); */
+    /* background-image: url('https://img.freepik.com/free-vector/vector-modern-abstract-geometric-background_260559-238.jpg?w=2000&t=st=1653439200~exp=1653439800~hmac=d483b1a694462e7af704ff66d05e3ca27e7b116f9d9cec3747190a950d1ff9cb'); */
+
+    /* background-image: url('../public/jellygif.gif'); */
+
+    display: block;
+    background-size: cover;
+}
+.searchContainer {
+
+
+    border-radius: 100%;
+}
+.searchBar {
+    width: 90%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 10px 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sliderContainer {
+    margin: 20px auto;
+}
+.eachCard {
+    margin: 10px auto;
+}
+.searchResults {
+    display: inline-block;
+    margin: 25px 25px;
+}
