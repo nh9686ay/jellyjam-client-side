@@ -144,9 +144,11 @@ h3{
   z-index: 11;
   min-width: 120px;
 }
+
 .player{
-  width: 100%;
-  
+  display: flex;
+  position:relative;
+  padding-top: 10%;
 }
 
 .side-nav{
@@ -170,14 +172,6 @@ h3{
   cursor: pointer;
 }
 
-/*.side-nav{
-  border-radius: 0;
-  border-bottom: 0;
-  height: 100%;
-  z-index: 1;
-}
-
-*/
 
 
 @keyframes animateBg {
@@ -192,8 +186,7 @@ h3{
 body{
   background: url('https://cdn.dribbble.com/users/156849/screenshots/6993098/32.gif');
   background-size: cover;
-  /* animation: animateBg 3.5s linear infinite; */
-  /* min-height: 100vh; */
+  min-height: 100vh;
 }
 
 * {
@@ -222,7 +215,10 @@ a {
 .swiper-button-prev{
   color: bisque;
 }
+
+
 body{
   font-family: 'Macondo', cursive;
 }
+
 
