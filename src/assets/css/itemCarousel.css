@@ -9,7 +9,6 @@
 .album, .playlist {
   display: flex;
   justify-content: center;
-  /* padding: 5rem; */
 }
 .album-img, .playlist-img {
   width: 12em;
@@ -21,7 +20,6 @@
   text-align: center;
   justify-items: center;
   padding: 15px;
-  /* padding-bottom: 0px; */
   width: 70em;
 }
 
@@ -29,7 +27,7 @@
 
 .slides {
 position: relative;
-}
+} 
 
 .slides .slick-prev,
 .slides .slick-next {

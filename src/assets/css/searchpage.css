@@ -17,17 +17,19 @@ h2 {
     position: relative;
     margin-top: 5%;
 }
-.searchBarContainer input, button {
+.slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+    font-size: 48px !important;
+    color:black
+}
+.searchBarContainer input{
     position: absolute;
     margin-top: 20px;
     left: 800px;
     float: left;
-    /* width: 80%; */
-    /* align-items: center; */
+    width: 20%;
+    align-items: center;
     z-index: 1;
-}
-.searchButton {
-    left: 950px;
 }
 .genreContainer {
     /* background-color: blueviolet; */
