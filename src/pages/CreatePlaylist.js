@@ -5,8 +5,6 @@ import SideNav from '../components/SideNav';
 
 function CreatePlaylist() {
 
-
-
     const playlistInitForm = {
         des: '',
         image_url: '',
@@ -50,15 +48,14 @@ function CreatePlaylist() {
 
 
   return (
-    <div>
-        <div>
-            <h1>Create your own Playlist</h1>
+    <div className='pageContainer'>
+        <div className='navWrap'>
+            <SideNav />
         </div>
-
-        
-        <form onSubmit={createPlaylistSubmit}>
-
-            <label htmlFor="name">Name: </label>
+        <div className="createFormContainer">
+        <h1>Create your own Playlist</h1>
+        <form className="createForm" onSubmit={createPlaylistSubmit}>
+            <label className="label" htmlFor="name">Playlist Name: </label>
             <input type="text" id="name" value={playlistForm.name} onChange={createPlaylistChange}></input>
             <br></br>
 
@@ -66,20 +63,17 @@ function CreatePlaylist() {
             <input type="text" id="des" value={playlistForm.des} onChange={createPlaylistChange}></input>
             <br></br>
 
-            <label htmlFor="image_url">Image: </label>
+            <label htmlFor="image_url">Add an Image URL: </label>
             <input type="text" id="image_url" value={playlistForm.image_url} onChange={createPlaylistChange}></input>
             <br></br>
             
- 
             <button type="submit">Create Playlist</button>
-     
         </form>
- 
+        </div>
         <Link to={'/'} className="link">
-            <button>HOME</button>
+            <button>Back</button>
         </Link>
-
-    </div>
+        </div>
   )
 }
 
