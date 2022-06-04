@@ -1,40 +1,53 @@
-import axios from 'axios';
-import React from 'react'
+import { withTheme } from '@emotion/react';
+import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
-function GenreCards() {
-  const client_id = '638824d8d1cf48bca579d7fa24c5ac40';
-  const client_secret = 'cb118a82d49d4d51b6f2e5ecefed9085';
 
-  const [token, setToken] = useState("")
+const colorArray = [
+  '#8D67AB',
+  '#1E3264',
+  '#E8245A',
+  '#35856A',
+  '#BA5D07',
+  '#E13301',
+  '#509BF5',
+  '#777777',
+  '#E1218B',
+  '#B49BC8',
+  '#EE37A5',
+  '#9CF0E1',
+  '#F7C864',
+  '#A56752',
+  '#477D95',
+  '#368A08',
+  '#EB2531',
+  '#D7F27D',
+  '#8C1932',
+  '#BA5D07',
+  '#3173EC',
+  '#F39B23'
+]
 
-  useEffect(() => {
-    async function fetchData() {
-      const params = new URLSearchParams();
-      params.append('grant_type', 'client_credentials');
-      const res = await axios.post('https://accounts.spotify.com/api/token', params, {
-        headers: {
-          'Authorization': 'Basic ' + (new Buffer.from(client_id + ':' + client_secret).toString('base64')),
-          'Content-Type': "application/x-www-form-urlencoded"
-        },
-      })
-      setToken(res.data.access_token)
-    }
-    fetchData();
-  }, [])
-
-  const getGenreCards = async (e) => {
-    e.preventDefault();
-    const { data } = await axios.get('https://api.spotify.com/v1/recommendations/available-genre-seeds', {
-      headers: {
-        'Authorization': `Bearer ${token}`}
-    })
-    console.log(data)
-    getGenreCards()
-  }
-
+function GenreCards({ genres }) {
   return (
-    <div>GenreCards
+    <div className="genreContainer">
+      {genres ? genres.map((genre, i) => {
+        const randomNum = Math.floor(Math.random() * 20)
 
+        return (
+          // <Link to={'/#'} className='eachGenre' key={i}>
+
+          <div 
+            style={{ backgroundColor: colorArray[randomNum] }} 
+            className='eachGenre' 
+            key={i}>
+            <p>{genre}</p>
+          </div>
+          // </Link>
+        )
+      })
+        : <h2>Loading...</h2>
+      }
     </div>
   )
 }

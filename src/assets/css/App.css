@@ -63,6 +63,12 @@ h3{
     color: white;
 }
 
+.linkCenter{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media only screen and (max-width: 1023px) { 
   .logo-section{
     border-bottom: solid 1px #172891;
@@ -109,11 +115,8 @@ h3{
     position: relative;
     margin-bottom: 5px;
   }
+ 
 
-  .mainSection{
-    width: 100% !important;
-    left: 0px !important;
-  }
 
   .resizeBar{
     display: none !important;
@@ -141,16 +144,18 @@ h3{
   z-index: 11;
   min-width: 120px;
 }
+
 .player{
-  width: 100%;
-  
+  display: flex;
+  position:relative;
+  bottom:0%;
+  padding-top: 10%;
 }
 
 .side-nav{
   border-bottom: none;
   border-radius: 0;
 }
-
 .mainSection{
   width: calc(100% - 350px);
   left: 350px;
@@ -168,14 +173,6 @@ h3{
   cursor: pointer;
 }
 
-/*.side-nav{
-  border-radius: 0;
-  border-bottom: 0;
-  height: 100%;
-  z-index: 1;
-}
-
-*/
 
 
 @keyframes animateBg {
@@ -190,8 +187,7 @@ h3{
 body{
   background: url('https://cdn.dribbble.com/users/156849/screenshots/6993098/32.gif');
   background-size: cover;
-  /* animation: animateBg 3.5s linear infinite; */
-  /* min-height: 100vh; */
+  min-height: 100vh;
 }
 
 * {
@@ -220,4 +216,10 @@ a {
 .swiper-button-prev{
   color: bisque;
 }
+
+
+body{
+  font-family: 'Macondo', cursive;
+}
+
 

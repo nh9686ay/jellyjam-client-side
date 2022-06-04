@@ -1,23 +1,69 @@
-#signUpButton{
+.glow-on-hover{
+    display:flex;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    padding: 0.7em 2em;
+    border: 3px solid #FF0072;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: #FF0072;
+    text-decoration: none;
+    transition: 0.3s ease all;
+    z-index: 1;
+   }
+   
+   button:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: #FF0072;
+    z-index: -1;
+   }
+   
+   button:hover, button:focus {
+    color: black;
+   }
+   
+   button:hover:before, button:focus:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+   }
+   
+   button:active {
+    transform: scale(0.9);
+   }
+
+
+
+/* #signUpButton{
     display:flex;
     border-radius: 15%;
     padding:10%;
     width:100%;
     border:none;
-    background-color: #021f59;
     font-size: 20px;
-   
-    
-    
-
+    background-color: transparent;
 }
 #signUpButtonContainer{
     height:3%;
     width: 12%;
     margin-right:0;
     margin-top: 1%;
-    position:absolute;
-    right:10%;
+    position:relative;
+    right:40%;
+    
    
    
    
@@ -28,9 +74,7 @@
     flex-direction: row;
     justify-content: center;
     width:100%;
-   
-   
-    
+
     
 }
 #loginButton{
@@ -44,14 +88,21 @@
     background-color:rgb(0,0,0,.89) ;
     opacity:.8;
     color:white;
+    text-align:center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: 20%;
   
 }
 #loginButtonContainer{
    margin-top: 1%;
     width: 10%;
     height:2%;
-   position:absolute;
-   right:5%;
+   position:relative;
+   right:45%;
     
 }
 
@@ -75,7 +126,7 @@
  }
 
  #signUpButton:hover{
-color:rgb(16, 16, 16)
+color:rgb(36, 35, 35)
 
 }
 
@@ -83,3 +134,73 @@ color:rgb(16, 16, 16)
 font-family: 'Macondo', cursive;
 font-size: 36px;
 }
+
+@media only screen and (max-width: 1023px) { 
+    #loginButton{
+        position: relative;
+        left:60vh;
+    }
+    #signUpButton{
+        position: relative;
+        left:55vh;
+    }
+} */
+
+/* .glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background:#000;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: white
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+} */

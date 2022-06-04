@@ -29,7 +29,7 @@ function NewAlbums() {
             'Content-Type': "application/x-www-form-urlencoded"
           },
         })
-        console.log(res.data.access_token)
+        // console.log(res.data.access_token)
         await setToken(res.data.access_token)
 
         const token = res.data.access_token
@@ -42,7 +42,7 @@ function NewAlbums() {
                 // type: 'album'
             }
         })
-        console.log(data)
+        // console.log(data)
         setAlbums(data.albums.items)
         
         

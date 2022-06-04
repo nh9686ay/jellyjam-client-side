@@ -1,13 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import '../../../assets/css/itemCarousel.css';
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 
-
 function FeaturedPlaylist({ featuredPlaylists }) {
-
 
     const settings = {
         dots: true,
@@ -20,7 +18,6 @@ function FeaturedPlaylist({ featuredPlaylists }) {
         className: "slides"
     }
 
-
   return (
     <div>
         <div className="featured-playlists">
@@ -31,11 +28,11 @@ function FeaturedPlaylist({ featuredPlaylists }) {
                         return (
                             //link to album page by id
                             <Link to={'/#'} key={i} className="link">
+                                <div key={i} className="playlist" >
+                                    {playlist.image_url && <img className="playlist-img" src={playlist.image_url} />}
+                                </div>
                                 <div>
                                     <h2>{playlist.name}</h2>
-                                </div>
-                                <div key={i} className="playlist" >
-                                    {playlist.images && <img className="playlist-img" src={playlist.images[0].url} />}
                                 </div>
                             </Link>
 

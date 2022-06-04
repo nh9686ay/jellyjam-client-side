@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/css/searchpage.css';
 import '../assets/css/itemCarousel.css';
+import '../assets/css/darkmode.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
@@ -27,7 +28,7 @@ function AlbumCard({ albums }) {
                 <img className='eachCard' height={"200px"} width={"200px"} src={album.images[0].url} alt={album.name} />
                 <p className='eachCard'>{album.name}</p>
                 <p className='eachCard'>By: {album.artists[0].name}</p>
-                {console.log(album)}
+                {/* {console.log(album)} */}
               </div>
             </Link>
           )

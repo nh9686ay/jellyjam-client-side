@@ -1,10 +1,13 @@
 import React from 'react'
 import '../../assets/css/signUpLoginPage.css';
+import { Link } from 'react-router-dom';
 
 function SignUpButton() {
   return (
     <div>
-        <button id = "signUpButton">Sign up</button>
+      <Link to={`/signup`}  className="link">
+        <button className = "glow-on-hover" >Sign up</button>
+        </Link>
     </div>
   )
 }

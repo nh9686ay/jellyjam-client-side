@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/css/searchpage.css';
 import '../assets/css/itemCarousel.css';
+import '../assets/css/darkmode.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
@@ -18,7 +19,7 @@ function SongCard({ songs }) {
 		className: "slides"
 	}
 	return (
-		<div className='sliderContainer'>
+		<>
 			<Slider {...settings}>
 				{songs.slice(0, 10).map((song, i) => {
 					return (
@@ -27,14 +28,13 @@ function SongCard({ songs }) {
 								<img className='eachCard' height={"200px"} width={"200px"} src={song.album.images[0].url} alt={song.name} />
 								<p className='eachCard'>{song.name}</p>
 								<p className='eachCard'>{song.artists.name}</p>
-								{console.log(song)}
 							</div>
 						</Link>
 					)
 				})
 				}
 			</Slider>
-		</div>
+		</>
 	)
 }
 
