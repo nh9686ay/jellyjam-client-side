@@ -6,8 +6,9 @@ function LoginButton() {
   return (
     
     <div>
+     
        <Link to={`/login`}  className="link">
-        <button id = "loginButton">Login</button>
+        <button id="loginButton">Login</button>
         </Link>
     </div>
   )

@@ -88,7 +88,7 @@ function AlbumById() {
     </div>
     </div>
     <div id = "albumTracksContainer">
-      <ul class = "albumTracks">{album.tracks.items.map((item)=>{
+      <ul className = "albumTracks">{album.tracks.items.map((item)=>{
         return   <li id ="singleTrack">{item.name}</li>
       })}
 
