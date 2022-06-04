@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 function LoginButton() {
   return (
     
-    <div>
-     
+    <div className='signUp'>
        <Link to={`/login`}  className="link">
         <button className = "glow-on-hover">Login</button>
         </Link>

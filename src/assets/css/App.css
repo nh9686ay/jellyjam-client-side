@@ -94,6 +94,11 @@ h3{
   .side-nav.active{
     padding: 0.5rem 0;
     height: 355px !important;
+
+  }
+  .side-nav.active h1{
+    color:bisque;
+    font-size: 50px;
   }
 
   .navWrap{
@@ -165,6 +170,7 @@ h3{
 
 .mobile_menu{
   position: absolute;
+  background-color: black;
   right: 0.67rem;
   width: 30px;
   height: 30px;
