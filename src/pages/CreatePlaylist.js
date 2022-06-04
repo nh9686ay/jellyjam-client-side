@@ -75,8 +75,8 @@ function CreatePlaylist() {
      
         </form>
         <div className='navWrap'>
-        <SideNav />
-      </div>
+            <SideNav />
+        </div>
  
         <Link to={'/'} className="link">
             <button>HOME</button>

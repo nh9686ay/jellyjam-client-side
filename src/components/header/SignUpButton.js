@@ -6,7 +6,7 @@ function SignUpButton() {
   return (
     <div>
       <Link to={`/signup`}  className="link">
-        <button id = "signUpButton">Sign up</button>
+        <button className = "glow-on-hover" >Sign up</button>
         </Link>
     </div>
   )

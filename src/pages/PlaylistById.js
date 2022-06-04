@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import PlaylistDetails from '../components/playlistbyid/PlaylistDetails'
+import PlaylistDetails from '../components/playlistbyid/PlaylistDetails';
+import SideNav from '../components/SideNav';
 
 function PlaylistById() {
 
@@ -30,6 +31,9 @@ function PlaylistById() {
         <h1>PlaylistById</h1>
 
         <PlaylistDetails fetchPlaylist={fetchPlaylist} playlist={playlist} />
+        <div className='navWrap'>
+            <SideNav />
+        </div>
 
     </div>
   )

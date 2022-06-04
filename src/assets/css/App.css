@@ -148,6 +148,7 @@ h3{
 .player{
   display: flex;
   position:relative;
+  bottom:0%;
   padding-top: 10%;
 }
 
