@@ -72,7 +72,7 @@ function SearchSong({ playlist, setPlaylist }) {
         {songs ? 
         <div>
             <h4>{songs.name}</h4>
-            <img src={songs.album.images[1].url} />
+            <img className="playlist-img" src={songs.album.images[1].url} />
             <br></br>
             <form onSubmit={addSong}>
             <button type="submit" >Add Song</button>

@@ -69,15 +69,15 @@ function PlaylistDetails({ playlist,  setPlaylist }) {
                         <h1>{track.name}</h1>
                         {track.album.images.length ? 
                         <div>
-                            <img src={track.album.images[1].url} alt='song img' />
+                            <img className="playlist-img" src={track.album.images[1].url} alt='song img' />
                         </div>
                         : null
                         }
-                        {/* <form onSubmit={() => deleteSong(track.id)}>
+                        <form onSubmit={() => deleteSong(track.id)}>
 
                         <button type="submit">Delete Song</button>
-                        </form> */}
-                        <button onClick={() => deleteSong(track.id)}>Delete Song</button>
+                        </form>
+                        {/* <button onClick={() => deleteSong(track.id)}>Delete Song</button> */}
                     </div>
                 )
             })
