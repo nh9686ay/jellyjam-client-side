@@ -9,15 +9,15 @@ function PlaylistById() {
 
     const [playlist, setPlaylist] = useState();
 
+    const fetchPlaylist = async () => {
+        const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
+        ? 'https://jellyjam-server.herokuapp.com/playlist/playlistbyid/' + id 
+        : '/playlist/playlistbyid/' + id 
+        const { data } = await axios.get(url)
+        console.log(data)
+        setPlaylist(data)
+    }
     useEffect(() => {
-        const fetchPlaylist = async () => {
-            const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
-            ? 'https://jellyjam-server.herokuapp.com/playlist/playlistbyid/' + id 
-            : '/playlist/playlistbyid/' + id 
-            const { data } = await axios.get(url)
-            console.log(data)
-            setPlaylist(data)
-        }
         fetchPlaylist();
     }, [])
 
@@ -29,7 +29,7 @@ function PlaylistById() {
     <div>
         <h1>PlaylistById</h1>
 
-        <PlaylistDetails playlist={playlist} />
+        <PlaylistDetails fetchPlaylist={fetchPlaylist} playlist={playlist} />
 
     </div>
   )

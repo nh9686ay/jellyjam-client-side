@@ -1,8 +1,11 @@
 import React, { useState }from 'react';
 import axios from 'axios';
 
-function SearchSong() {
 
+function SearchSong({ playlist, fetchPlaylist }) {
+
+   
+  
     const songInitForm = {
         nameSearch: ''
     }
@@ -10,7 +13,7 @@ function SearchSong() {
     const [songs, setSongs] = useState()
 
     const [songForm, setSongForm] = useState(songInitForm)
-    const [searchkey, setSearchKey] = useState()
+
 
     const searchChange = (e) => {
         setSongForm({ ...songForm, [e.target.id]: e.target.value })
@@ -19,12 +22,10 @@ function SearchSong() {
 
     const searchSubmit = async (e) => {
         e.preventDefault()
-        await setSearchKey(songForm)
-
-        console.log(searchkey)
+   
         const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
-                ? "https://jellyjam-server.herokuapp.com/playlist/searchsong/" + searchkey.nameSearch
-                : 'http://localhost:5005/playlist/searchsong/' + searchkey.nameSearch 
+                ? "https://jellyjam-server.herokuapp.com/playlist/searchsong/" + songForm.nameSearch
+                : 'http://localhost:5005/playlist/searchsong/' + songForm.nameSearch
        
         const { data } = await axios.get(url)
         console.log(data)
@@ -34,7 +35,12 @@ function SearchSong() {
 
 
     const addSong = async (e) => {
-        //post route here to add song to playlist
+        const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
+                ? "https://jellyjam-server.herokuapp.com/playlist/searchsong/" + songForm.nameSearch
+                : 'http://localhost:5005/playlist/searchsong/' + songForm.nameSearch 
+       
+        const { data } = await axios.get(`http://localhost:5005/playlist/addsong/${songs.id}/${playlist._id}`)
+        console.log(data)
     }
     
 
@@ -56,7 +62,12 @@ function SearchSong() {
             <h4>{songs.name}</h4>
             <img src={songs.album.images[1].url} />
             <br></br>
-            <button onClick={addSong}>Add Song</button>
+            <form  onSubmit={addSong}>
+
+            <button type="submit" >Add Song</button>
+            </form>
+         
+          
         </div> 
         : null}
 
