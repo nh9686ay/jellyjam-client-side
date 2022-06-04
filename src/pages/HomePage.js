@@ -4,6 +4,7 @@ import SideNav from '../components/SideNav';
 import NewAlbums from '../components/carousels/new-albums/NewAlbums';
 import FeaturedPlaylists from '../components/carousels/featured-playlists/FeaturedPlaylists';
 import SpotifyPlayer from 'react-spotify-player';
+import Header from '../components/header/Header';
 
 
 function HomePage() {
@@ -51,6 +52,7 @@ function HomePage() {
 
   return (
     <div>
+      <Header />
         <div className="navWrap" id="navWrap">
           <div className="logo-section">
               <h3>JellyJam</h3>
