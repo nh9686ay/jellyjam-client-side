@@ -17,7 +17,7 @@ function PlaylistDetails({ playlist, fetchPlaylist }) {
         const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
                 ? `https://jellyjam-server.herokuapp.com/playlist/deletesong/${id}/${playlist._id}`
                 : `http://localhost:5005/playlist/deletesong/${id}/${playlist._id}`  
-        const { data } = await axios.put(`http://localhost:5005/playlist/deletesong/${id}/${playlist._id}`)
+        const { data } = await axios.put(url)
         console.log(data)
     }
 

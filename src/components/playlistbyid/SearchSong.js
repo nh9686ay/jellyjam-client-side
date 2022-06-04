@@ -36,10 +36,10 @@ function SearchSong({ playlist, fetchPlaylist }) {
 
     const addSong = async (e) => {
         const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
-                ? "https://jellyjam-server.herokuapp.com/playlist/searchsong/" + songForm.nameSearch
-                : 'http://localhost:5005/playlist/searchsong/' + songForm.nameSearch 
+                ? `https://jellyjam-server.herokuapp.com/playlist/addsong/${songs.id}/${playlist._id}`
+                : `http://localhost:5005/playlist/addsong/${songs.id}/${playlist._id}`
        
-        const { data } = await axios.get(`http://localhost:5005/playlist/addsong/${songs.id}/${playlist._id}`)
+        const { data } = await axios.get(url)
         console.log(data)
     }
     
