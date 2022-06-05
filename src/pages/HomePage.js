@@ -47,17 +47,19 @@ function HomePage() {
   return (
     <div>
       <Header />
-      <div className="navWrap" id="navWrap">
-        <div className="logo-section">
-          <h3>JellyJam</h3>
-          <div className="mobile_menu" onClick={toggleMobileMenu}>
-            <div className="dash_line"></div>
-            <div className="dash_line"></div>
-            <div className="dash_line"></div>
+        <div className="navWrap" id="navWrap">
+          <div className="logo-section">
+              <h3 className="title2">JellyJam</h3>
+          
+              <div className="mobile_menu" onClick={toggleMobileMenu}>
+                  <div className="dash_line"></div>
+                  <div className="dash_line"></div>
+                  <div className="dash_line"></div>
+              </div>
           </div>
         </div>
         <SideNav toggleMenu={toggleMenu} />
-      </div>
+     
       <div
         className="resizeBar"
         id="resizeBar"
