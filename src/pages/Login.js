@@ -1,11 +1,12 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
 import SideNav from '../components/SideNav';
-
+import { useNavigate } from 'react-router-dom';
 
 
 function Login({ loggedInUser, setLoggedInUser }) {
+
+    const navigate = useNavigate()
 
     const loginFormStructure = {
         email: '',
@@ -39,7 +40,10 @@ function Login({ loggedInUser, setLoggedInUser }) {
                 console.log(res)
                 setLoggedInUser(res.data[0])
             })
-            .finally(() => console.log(loggedInUser))
+            .finally(() => {
+                console.log(loggedInUser)
+                navigate('/')
+            })
             .catch(console.error)
         }
     }, [loginData]);
@@ -57,9 +61,9 @@ function Login({ loggedInUser, setLoggedInUser }) {
                 <label htmlFor="password">Password: </label>
                 <input type="text" id="password" defaultValue={loginFormData.password} ></input>
 
-                <Link to={'/'} className="link">
-                    <button type="submit">Login</button>
-                </Link>
+               
+                <button type="submit">Login</button>
+                
         </form>
         <div className='navWrap'>
             <SideNav />

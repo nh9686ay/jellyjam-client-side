@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import SideNav from '../components/SideNav';
+import { useNavigate } from 'react-router-dom';
 
 function CreatePlaylist() {
 
+    const navigate = useNavigate()
 
 
     const playlistInitForm = {
@@ -26,8 +28,6 @@ function CreatePlaylist() {
         e.preventDefault();
         setPlaylist(playlistForm)
         console.log(playlist)
-        //reset input fields 
-        // setPlaylistForm(playlistInitForm)
     }
     
 
@@ -44,6 +44,7 @@ function CreatePlaylist() {
         })
         .then(res => {
             console.log(res)
+            navigate('/library')
         })
         .catch(console.error)
     }

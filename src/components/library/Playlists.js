@@ -23,7 +23,10 @@ function Playlists() {
 
     if(!playlistsLib.length) {
         return (
-            <h1>Loading...</h1>
+            <div>
+                <h1>Loading... Playlists</h1>
+                <h3>If you dont have any playlists, please make one.</h3>
+            </div>
         )
     }
 
@@ -34,7 +37,7 @@ function Playlists() {
         </div>
 
         <div>
-            <PlaylistDis playlists={playlistsLib} />
+            <PlaylistDis playlists={playlistsLib} fetchPlaylists={fetchPlaylists} />
         </div>
 
     </div>

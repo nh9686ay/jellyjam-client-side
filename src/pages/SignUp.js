@@ -1,8 +1,11 @@
 import React, { useState }from 'react'
 import axios from 'axios';
 import SideNav from '../components/SideNav';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
+
+    const navigate = useNavigate()
 
     const formStructure = {
         email: '',
@@ -28,13 +31,18 @@ function SignUp() {
     if(signUpData.length) {
         
             console.log(signUpData)
-            axios.post('/user/signup', { 
+            const url = process.env.REACT_APP_IS_DEPLOYED === 'true'
+                ? "https://jellyjam-server.herokuapp.com/user/signup"
+                : "/user/signup"
+            axios.post(url, { 
                 email: signUpData[0].email,
                 userName: signUpData[0].userName,
                 password: signUpData[0].password
             })
-            .then(res => console.log(res))
-            .then(data => console.log(data))
+            .then(res => {
+                console.log(res)
+                navigate('/login')
+            })
             .catch(console.error)
     }
 
