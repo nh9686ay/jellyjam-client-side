@@ -8,10 +8,10 @@ function Library() {
       <div className='navWrap'>
         <SideNav />
       </div>
-        <h1>Library</h1>
-
-        <Playlists />
-
+        {/* <h1>Library</h1> */}
+        <div className='playlistLi'>
+          <Playlists />
+        </div>
     </div>
   )
 }

@@ -1,28 +1,30 @@
+
 body {
-    /* overflow: hidden; */
-}
-h2 {
+     /* overflow: hidden;  */
+   } 
+  h2 {
     color: white;
     float: left;
-}
-.pageContainer {
+  }
+  .pageContainer {
     display: flex;
     overflow: auto;
-}
-.main {
+  }
+  .main {
     height: 95vh;
     display: flex;
     width: calc(100% - 350px);
     left: 350px;
     position: relative;
     margin-top: 5%;
-}
-.slick-prev:before, .slick-next:before {
-    font-family: 'slick';
-    font-size: 48px !important;
-    color:black
-}
-.searchBarContainer input{
+  }
+  .slick-prev:before,
+  .slick-next:before {
+    font-family: "slick";
+    font-size: 3vw !important;
+    color: 	#000000;
+  }
+  .searchBarContainer input {
     position: absolute;
     margin-top: 20px;
     left: 800px;
@@ -30,8 +32,8 @@ h2 {
     width: 20%;
     align-items: center;
     z-index: 1;
-}
-.genreContainer {
+  }
+  .genreContainer {
     /* background-color: blueviolet; */
     display: grid;
     grid-template-columns: repeat(6, 30%);
@@ -39,22 +41,21 @@ h2 {
     row-gap: 2.5%;
     column-gap: 2.5%;
     padding-left: 25px;
-}
-.eachGenre {
+  }
+  .eachGenre {
     line-height: 150px;
     border-radius: 1em;
-}
-.sideNav {
+  }
+  .sideNav {
     align-self: flex-start;
-}
-.sliderContainer {
+  }
+  .sliderContainer {
     margin: 20px auto;
-}
-.eachCard {
+  }
+  .eachCard {
     margin: 10px auto;
-}
-.searchResults {
+  }
+  .searchResults {
     display: inline-block;
     margin: 25px 25px;
-
-}
+  } 
