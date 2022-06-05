@@ -57,8 +57,8 @@ function HomePage() {
                   <div className="dash_line"></div>
               </div>
           </div>
-        </div>
         <SideNav toggleMenu={toggleMenu} />
+        </div>
      
       <div
         className="resizeBar"
