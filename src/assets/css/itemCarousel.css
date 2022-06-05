@@ -1,17 +1,18 @@
-
-
-.new-albums, .featured-playlists {
+.new-albums,
+.featured-playlists {
   display: flex;
   margin: 5rem;
-  justify-content: center; 
+  justify-content: center;
   text-align: center;
 }
-.album, .playlist {
+.album,
+.playlist {
   display: flex;
   justify-content: center;
 }
-.album-img, .playlist-img {
-  width: 12em;
+.album-img,
+.playlist-img {
+  width: 75%;
 }
 
 .slides {
@@ -20,24 +21,21 @@
   text-align: center;
   justify-items: center;
   padding: 15px;
-  width: 70em;
+  width: 100%;
 }
 
-
-
 .slides {
-position: relative;
-} 
+  position: relative;
+}
 
 .slides .slick-prev,
 .slides .slick-next {
-position: absolute;
-top: 50%;
-z-index:1;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
 }
 
 .slides .slick-prev {
-left: 0%;
 }
 
 .slides .slick-next {

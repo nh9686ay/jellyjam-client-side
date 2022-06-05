@@ -6,42 +6,72 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 
 function FeaturedPlaylist({ featuredPlaylists }) {
-
     const settings = {
-        dots: true,
-        fade: false,
-        infinite: true,
-        speed:400,
-        slidesToShow: 4,
-        arrows: true,
-        slidesToStroll: 1,
-        className: "slides"
-    }
-
-  return (
-    <div>
+      dots: true,
+      fade: false,
+      infinite: true,
+      speed: 400,
+      slidesToShow: 4,
+      arrows: true,
+      slidesToStroll: 1,
+      className: "slides",
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true,
+          },
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2,
+          },
+        },
+        {
+          breakpoint: 512,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 256,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    };
+  
+    return (
+      <div>
         <div className="featured-playlists">
-            <Slider {...settings}>
-            
-                {
-                    featuredPlaylists.slice(0, 10).map((playlist, i) => {
-                        return (
-                            //link to album page by id
-                            <Link to={'/#'} key={i} className="link">
-                                <div key={i} className="playlist" >
-                                    {playlist.image_url && <img className="playlist-img" src={playlist.image_url} />}
-                                </div>
-                                <div>
-                                    <h2>{playlist.name}</h2>
-                                </div>
-                            </Link>
-
-                        )
-                    })
-                }
-            </Slider>
+          <Slider {...settings}>
+            {featuredPlaylists.slice(0, 10).map((playlist, i) => {
+              return (
+                //link to album page by id
+                <Link to={"/#"} key={i} className="link">
+                  <div key={i} className="playlist">
+                    {playlist.image_url && (
+                      <img className="playlist-img" src={playlist.image_url} />
+                    )}
+                  </div>
+                  <div>
+                    <h2>{playlist.name}</h2>
+                  </div>
+                </Link>
+              );
+            })}
+          </Slider>
         </div>
-    </div>
-)
-              }
-export default FeaturedPlaylist;
+      </div>
+    );
+  }
+  export default FeaturedPlaylist;
