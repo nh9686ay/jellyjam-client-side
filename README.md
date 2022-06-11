@@ -1,6 +1,6 @@
 # JellyJam Client Side
 A team of five chose to recreate the Spotify Web Player for a class team project at General Assembly.
-
+Deployed version: https://jellyjam.netlify.app/
 # Motivation
 We chose this app idea because we all love music, and we are all avid users of Spotify!
 
