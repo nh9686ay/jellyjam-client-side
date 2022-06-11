@@ -14,7 +14,7 @@ As a user, I would like to be able to sign up for a new account.
 As a user, I would like to be able to view the album/artist/song/playlist page.
 As a user, I would like to be able to listen to music.
 #   WireFrame
-https://media.git.generalassemb.ly/user/41415/files/5ad69ee0-46fc-4e1a-8b9e-a8d0159f6219
+![12](https://media.git.generalassemb.ly/user/41415/files/5ad69ee0-46fc-4e1a-8b9e-a8d0159f6219)
 # Screenshots
 ![Screenshot](homepage.png)
 ![Screenshot](defaultsearchpage.png)
